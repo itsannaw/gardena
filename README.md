@@ -3,5 +3,5 @@
 <a href="https://github.com/itsannaw/gardena/actions"><img src="https://github.com/itsannaw/gardena/actions/workflows/cicd.yml/badge.svg" /></a>
 
 * Проект представляет собой галерею растений.
-* Использовано [Trefle API](https://trefle.io/profile).
+* Использовано [Perenuale API](https://perenual.com/).
 * [Посмотреть проект](https://gardena-plant.vercel.app/).

@@ -7,7 +7,7 @@ const NavbarComponent = () => {
             <NavbarBrand>
                 <GardenaLogo />
             </NavbarBrand>
-            <NavbarContent className="hidden sm:flex gap-10" justify="start">
+            <NavbarContent className="hidden sm:flex gap-10" justify="center">
                 <NavbarItem isActive>
                     <Link color="foreground" href="#">
                         Home
@@ -48,15 +48,25 @@ const NavbarComponent = () => {
                     </Tooltip>
                 </NavbarItem>
                 <NavbarItem>
-                    <Tooltip showArrow={true} content="Login or signup">
+                    <Tooltip showArrow={true} content="Logout">
                         <Link href="#">
                             <img
                                 className="h-6 w-6"
-                                src="../src/assets/icons/login.svg"
+                                src="../src/assets/icons/logout.svg"
                                 alt="Logout"
                             />
                         </Link>
                     </Tooltip>
+                </NavbarItem>
+                <NavbarItem>
+                    <Link href="#">
+                        <span className="">Login</span>
+                    </Link>
+                </NavbarItem>
+                <NavbarItem>
+                    <Link href="#">
+                        <span>Signup</span>
+                    </Link>
                 </NavbarItem>
             </NavbarContent>
         </Navbar>

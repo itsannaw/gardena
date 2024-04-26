@@ -1,5 +1,4 @@
 import { Input } from "@nextui-org/react";
-// import SearchIcon from "../../assets/icons/search.svg";
 
 const SearchIcon = () => (
     <button className="p-2 bg-light-green rounded-xl">

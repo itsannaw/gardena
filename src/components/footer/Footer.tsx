@@ -1,9 +1,10 @@
 import { Link } from "@nextui-org/react";
+
 import { URL } from "../../const/url";
 
 export const Footer = () => {
     return (
-        <div className="flex flex-col justify-center items-center mt-10 gap-1">
+        <div id="contacts" className="flex flex-col justify-center items-center mt-10 mb-3 gap-2">
             <Link
                 className="text-black font-medium hover:text-default-700 dark:hover:text-default-300"
                 href={URL.GITHUB}

@@ -1,9 +1,9 @@
 import { SearchInput } from "../../components";
 import CardComponent from "../../components/card/Card";
 
-function Home() {
+export const HomePage = () => {
     return (
-        <section className="flex flex-col gap-10">
+        <section id="home" className="flex flex-col gap-10">
             <div className="flex justify-between bg-light-green px-14 pt-12 rounded-3xl">
                 <div className="flex flex-col justify-start gap-10">
                     <h1 className="text-6xl font-extrabold">
@@ -40,7 +40,7 @@ function Home() {
                     />
                 </div>
             </div>
-            <div className="flex justify-between">
+            <div id="gallery" className="flex justify-between">
                 <CardComponent />
                 <CardComponent />
                 <CardComponent />
@@ -48,6 +48,4 @@ function Home() {
             </div>
         </section>
     );
-}
-
-export default Home;
+};

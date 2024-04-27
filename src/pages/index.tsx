@@ -1,3 +1,6 @@
-import Home from "./home/Home";
+import { ErrorPage } from "./404/ErrorPage";
+import { HomePage } from "./home/HomePage";
+import { LoginPage } from "./login/LoginPage";
+import { SignUpPage } from "./signup/SignUpPage";
 
-export { Home };
+export { HomePage, ErrorPage, LoginPage, SignUpPage };

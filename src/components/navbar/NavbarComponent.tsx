@@ -39,19 +39,19 @@ export const NavbarComponent = () => {
             </NavbarContent>
             <NavbarContent justify="end">
                 <IconNavbarItem
-                    iconSrc="../src/assets/icons/heart.svg"
+                    iconSrc="/icons/heart.svg"
                     iconAlt="Heart"
                     tooltipContent="Your favourite plants"
                     href="#"
                 />
                 <IconNavbarItem
-                    iconSrc="../src/assets/icons/book.svg"
+                    iconSrc="/icons/book.svg"
                     iconAlt="History"
                     tooltipContent="Your search history"
                     href="#"
                 />
                 <IconNavbarItem
-                    iconSrc="../src/assets/icons/logout.svg"
+                    iconSrc="/icons/logout.svg"
                     iconAlt="Logout"
                     tooltipContent="Logout"
                     href="#"

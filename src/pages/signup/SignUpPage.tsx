@@ -9,12 +9,12 @@ export const SignUpPage = () => {
         <section className="flex min-h-[calc(100vh-255px)] items-center justify-center">
             <img
                 className="absolute right-40 top-40 hidden h-[196px] w-[320px] md:block"
-                src="../src/assets/auth/leaves-right.png"
+                src="/auth/leaves-right.png"
                 alt="Leaves"
             />
             <img
                 className="absolute bottom-40 left-32 hidden h-[186px] w-[300px] md:block"
-                src="../src/assets/auth/leaves-left.png"
+                src="/auth/leaves-left.png"
                 alt="Leaves"
             />
             <Card className="flex w-full max-w-[400px] flex-col items-center gap-5 px-10 py-8">

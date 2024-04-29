@@ -25,17 +25,17 @@ export const HomePage = () => {
                     <div className="relative mr-1 h-[350px] w-[420px] rounded-t-full rounded-bl-full xl:mr-28 xl:bg-light-black">
                         <img
                             className="absolute bottom-0 left-8 hidden h-[510px] w-[410px] lg:block"
-                            src="../src/assets/home/pot-plant.png"
+                            src="/home/pot-plant.png"
                             alt="Pot Plant"
                         />
                         <img
                             className="absolute bottom-[135px] left-[-205px] hidden default:block"
-                            src="../src/assets/home/arrow-left.svg"
+                            src="/home/arrow-left.svg"
                             alt="Arrow"
                         />
                         <img
                             className="absolute right-[-55px] top-[-135px] hidden xl:block"
-                            src="../src/assets/home/arrow-right.svg"
+                            src="/home/arrow-right.svg"
                             alt="Arrow"
                         />
                     </div>

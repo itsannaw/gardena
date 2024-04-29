@@ -9,7 +9,7 @@ export const Footer = () => {
                 className="font-medium text-black hover:text-default-700 dark:hover:text-default-300"
                 href={URL.GITHUB}
             >
-                <img className="h-4 w-4" src="../src/assets/icons/github.svg" alt="Github" /> &nbsp;
+                <img className="h-4 w-4" src="/icons/github.svg" alt="Github" /> &nbsp;
                 Github
             </Link>
             <div className="flex justify-center text-center text-sm font-medium">

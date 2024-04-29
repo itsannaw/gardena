@@ -15,6 +15,7 @@ export default {
             colors: {
                 "light-green": "#c1dcdc",
                 "button-green": "#85b791b3",
+                "light-black": "#1a1a1a",
             },
         },
     },

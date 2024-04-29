@@ -12,12 +12,8 @@ export const Footer = () => {
                 <img className="h-4 w-4" src="../src/assets/icons/github.svg" alt="Github" /> &nbsp;
                 Github
             </Link>
-            <div className="flex justify-center font-medium text-sm">
-                2024 © The site was created as part of the React intensive course at&nbsp;
-                <Link className="text-sm border-b-1" href={URL.ASTON} color="foreground">
-                    Aston
-                </Link>
-                .
+            <div className="flex justify-center text-center font-medium text-sm">
+                2024 © The site was created as part of the React intensive course at Aston.
             </div>
         </div>
     );

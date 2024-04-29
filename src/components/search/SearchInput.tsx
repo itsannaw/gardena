@@ -6,7 +6,7 @@ const SearchIcon = () => (
     </button>
 );
 
-const SearchInput = () => {
+export const SearchInput = () => {
     return (
         <Input
             classNames={{
@@ -27,5 +27,3 @@ const SearchInput = () => {
         />
     );
 };
-
-export default SearchInput;

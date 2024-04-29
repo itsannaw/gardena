@@ -1,11 +1,10 @@
-import { SearchInput } from "../../components";
-import CardComponent from "../../components/card/Card";
+import { CardComponent, SearchInput } from "../../components";
 
 export const HomePage = () => {
     return (
         <section id="home" className="flex flex-col gap-10">
-            <div className="flex justify-between bg-light-green px-14 pt-12 rounded-3xl">
-                <div className="flex flex-col justify-start gap-10">
+            <div className="relative flex justify-between bg-light-green px-10 xl:px-14  rounded-3xl">
+                <div className="flex flex-col justify-center gap-10 py-14 lg:py-28">
                     <h1 className="text-6xl font-extrabold">
                         Find out <br /> more plants
                     </h1>
@@ -22,25 +21,27 @@ export const HomePage = () => {
                     </div>
                     <SearchInput />
                 </div>
-                <div className="relative mt-[123px] mr-28 w-[420px] h-[350px] rounded-t-full rounded-bl-full bg-[#1e1e1e]">
-                    <img
-                        className="absolute bottom-0 left-8 w-[410px] h-[510px]"
-                        src="../src/assets/home/pot-plant.png"
-                        alt="Pot Plant"
-                    />
-                    <img
-                        className="absolute left-[-205px] bottom-[135px]"
-                        src="../src/assets/home/arrow-left.svg"
-                        alt="Arrow"
-                    />
-                    <img
-                        className="absolute right-[-55px] top-[-135px]"
-                        src="../src/assets/home/arrow-right.svg"
-                        alt="Arrow"
-                    />
+                <div className="flex items-end">
+                    <div className="relative mr-1 xl:mr-28 w-[420px] h-[350px] rounded-t-full rounded-bl-full xl:bg-[#1e1e1e]">
+                        <img
+                            className="absolute bottom-0 left-8 w-[410px] h-[510px] hidden lg:block"
+                            src="../src/assets/home/pot-plant.png"
+                            alt="Pot Plant"
+                        />
+                        <img
+                            className="absolute left-[-205px] bottom-[135px] hidden default:block"
+                            src="../src/assets/home/arrow-left.svg"
+                            alt="Arrow"
+                        />
+                        <img
+                            className="absolute right-[-55px] top-[-135px] hidden xl:block"
+                            src="../src/assets/home/arrow-right.svg"
+                            alt="Arrow"
+                        />
+                    </div>
                 </div>
             </div>
-            <div id="gallery" className="flex justify-between">
+            <div id="gallery" className="flex flex-wrap justify-center xl:justify-between gap-4">
                 <CardComponent />
                 <CardComponent />
                 <CardComponent />

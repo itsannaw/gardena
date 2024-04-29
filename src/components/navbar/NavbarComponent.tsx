@@ -3,10 +3,10 @@ import { Link as LinkRouter, useLocation } from "react-router-dom";
 
 import { ROUTES } from "../../const/routes";
 
-import GardenaLogo from "./GardenaLogo";
+import { GardenaLogo } from "./GardenaLogo";
 import { IconNavbarItem } from "./IconNavbarItem";
 
-const NavbarComponent = () => {
+export const NavbarComponent = () => {
     const location = useLocation();
 
     const isHomePage = location.pathname === "/";
@@ -70,5 +70,5 @@ const NavbarComponent = () => {
         </Navbar>
     );
 };
+export { Navbar };
 
-export default NavbarComponent;

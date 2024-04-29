@@ -4,7 +4,7 @@ import App from "../App";
 import { ROUTES } from "../const/routes";
 import { ErrorPage, HomePage, LoginPage, SignUpPage } from "../pages";
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
     {
         path: "/",
         element: <App />,
@@ -25,5 +25,3 @@ const router = createBrowserRouter([
         ],
     },
 ]);
-
-export default router;

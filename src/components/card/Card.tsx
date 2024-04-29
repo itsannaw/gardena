@@ -1,6 +1,6 @@
 import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
 
-const CardComponent = () => {
+export const CardComponent = () => {
     return (
         <Card
             className="border-none bg-background/60 dark:bg-default-100/50 max-w-[300px]"
@@ -25,4 +25,3 @@ const CardComponent = () => {
     );
 };
 
-export default CardComponent;

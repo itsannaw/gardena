@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const GardenaLogo = () => {
+export const GardenaLogo = () => {
     return (
         <Link className="flex items-center gap-2" to={"/"}>
             <img
@@ -8,9 +8,7 @@ const GardenaLogo = () => {
                 src="../src/assets/icons/plant.svg"
                 alt="Gardena Logo"
             />
-            <p className=" text-xl font-bold tracking-tight">GARDENA</p>
+            <p className="text-sm lg:text-xl font-bold tracking-tight">GARDENA</p>
         </Link>
     );
 };
-
-export default GardenaLogo;

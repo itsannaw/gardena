@@ -16,7 +16,7 @@ export const NavbarComponent = () => {
             <NavbarBrand>
                 <GardenaLogo />
             </NavbarBrand>
-            <NavbarContent className="hidden sm:flex gap-10" justify="center">
+            <NavbarContent className="hidden gap-10 sm:flex" justify="center">
                 {isHomePage && (
                     <>
                         <NavbarItem>
@@ -71,4 +71,3 @@ export const NavbarComponent = () => {
     );
 };
 export { Navbar };
-

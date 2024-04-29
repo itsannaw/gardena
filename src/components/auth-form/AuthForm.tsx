@@ -2,8 +2,8 @@ import { Button, Input } from "@nextui-org/react";
 
 export const AuthForm = () => {
     return (
-        <form className="flex flex-col gap-8 w-full max-w-md mx-auto">
-            <div className="flex flex-col gap-5 w-full items-center">
+        <form className="mx-auto flex w-full max-w-md flex-col gap-8">
+            <div className="flex w-full flex-col items-center gap-5">
                 <Input
                     isClearable
                     type="email"

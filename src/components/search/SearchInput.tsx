@@ -1,7 +1,7 @@
 import { Input } from "@nextui-org/react";
 
 const SearchIcon = () => (
-    <button className="p-2 bg-light-green rounded-xl">
+    <button className="rounded-xl bg-light-green p-2">
         <img src="../src/assets/icons/search.svg" alt="Search" className="h-5 w-5" />
     </button>
 );

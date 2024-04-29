@@ -1,4 +1,4 @@
-import { ErrorPage } from "./404/ErrorPage";
+import { ErrorPage } from "./error/ErrorPage";
 import { HomePage } from "./home/HomePage";
 import { LoginPage } from "./login/LoginPage";
 import { SignUpPage } from "./signup/SignUpPage";

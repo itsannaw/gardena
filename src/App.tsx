@@ -4,7 +4,7 @@ import { Footer, NavbarComponent } from "./components";
 
 const App = () => {
     return (
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-9">
             <NavbarComponent />
             <div className="mx-5 lg:mx-24">
                 <Outlet />

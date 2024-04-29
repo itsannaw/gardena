@@ -3,20 +3,20 @@ import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
 export const CardComponent = () => {
     return (
         <Card
-            className="border-none bg-background/60 dark:bg-default-100/50 max-w-[300px]"
+            className="max-w-[300px] border-none bg-background/60 dark:bg-default-100/50"
             shadow="sm"
             isBlurred
             isPressable
         >
-            <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                <p className="text-tiny uppercase font-bold">Family Plant</p>
+            <CardHeader className="flex-col items-start px-4 pb-0 pt-2">
+                <p className="text-tiny font-bold uppercase">Family Plant</p>
                 <small className="text-default-500">Year</small>
-                <h4 className="font-bold text-large">Name Plant</h4>
+                <h4 className="text-large font-bold">Name Plant</h4>
             </CardHeader>
             <CardBody className="overflow-visible py-2">
                 <Image
                     alt="Card background"
-                    className="object-cover rounded-xl"
+                    className="rounded-xl object-cover"
                     src="/images/hero-card-complete.jpeg"
                     width={270}
                 />
@@ -24,4 +24,3 @@ export const CardComponent = () => {
         </Card>
     );
 };
-

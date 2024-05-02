@@ -1,4 +1,4 @@
-import { CardComponent, SearchInput } from "../../components";
+import { CardComponent, SearchInput } from "@/components";
 
 export const HomePage = () => {
     return (

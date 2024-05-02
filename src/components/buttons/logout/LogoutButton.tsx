@@ -1,7 +1,7 @@
 import { Button, Tooltip } from "@nextui-org/react";
 
-import { useAppDispatch } from "../../../hooks/reduxHooks";
-import { logoutUser } from "../../../store/user/userThunk";
+import { useAppDispatch } from "@/hooks/reduxHooks";
+import { logoutUser } from "@/store/user/userThunk";
 
 export const LogoutButton = () => {
     const dispatch = useAppDispatch();

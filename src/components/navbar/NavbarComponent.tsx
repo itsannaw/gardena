@@ -1,9 +1,9 @@
 import { Link, Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/react";
 import { Link as LinkRouter, useLocation } from "react-router-dom";
 
-import { ROUTES } from "../../const/routes";
-import { useAuth } from "../../hooks/useAuth";
-import { LogoutButton } from "../buttons/logout/LogoutButton";
+import { LogoutButton } from "@/components/buttons/logout/LogoutButton";
+import { ROUTES } from "@/const/routes";
+import { useAuth } from "@/hooks/useAuth";
 
 import { GardenaLogo } from "./GardenaLogo";
 import { IconNavbarItem } from "./IconNavbarItem";

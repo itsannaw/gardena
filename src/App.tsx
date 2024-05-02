@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 
-import { Footer, NavbarComponent } from "./components";
+import { Footer, NavbarComponent } from "@/components";
 
 const App = () => {
     return (

@@ -1,10 +1,9 @@
 import { useNavigate } from "react-router-dom";
 
-import { ROUTES } from "../../const/routes";
-import { useAppDispatch } from "../../hooks/reduxHooks";
-import { registerUser } from "../../store/user/userThunk";
-
-import { AuthForm } from "./AuthForm";
+import { AuthForm } from "@/components/auth/AuthForm";
+import { ROUTES } from "@/const/routes";
+import { useAppDispatch } from "@/hooks/reduxHooks";
+import { registerUser } from "@/store/user/userThunk";
 
 export const SignUp = () => {
     const dispatch = useAppDispatch();

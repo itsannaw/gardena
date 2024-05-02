@@ -2,7 +2,7 @@ import { Button, Card, Input } from "@nextui-org/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { AuthFormProps } from "../../types";
+import { AuthFormProps } from "@/types/auth";
 
 export const AuthForm = ({
     handleSubmit,

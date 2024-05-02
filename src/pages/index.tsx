@@ -1,6 +1,6 @@
 import { ErrorPage } from "./error/ErrorPage";
 import { HomePage } from "./home/HomePage";
-import { LoginPage } from "./login/LoginPage";
+import { SignInPage } from "./signin/SignInPage";
 import { SignUpPage } from "./signup/SignUpPage";
 
-export { HomePage, ErrorPage, LoginPage, SignUpPage };
+export { HomePage, ErrorPage, SignInPage, SignUpPage };

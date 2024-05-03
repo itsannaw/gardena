@@ -3,11 +3,11 @@ import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } f
 
 import { auth } from "@/services/firebase";
 import { removeUser, setUser } from "@/store/user/userSlice";
-import { AuthData } from "@/types/auth";
+import { FormUserData } from "@/types/auth";
 
 export const loginUser = createAsyncThunk(
     "user/login",
-    async ({ email, password }: AuthData, { dispatch }) => {
+    async ({ email, password }: FormUserData, { dispatch }) => {
         const { user } = await signInWithEmailAndPassword(auth, email, password);
         dispatch(
             setUser({
@@ -21,7 +21,7 @@ export const loginUser = createAsyncThunk(
 
 export const registerUser = createAsyncThunk(
     "user/register",
-    async ({ email, password }: AuthData, { dispatch }) => {
+    async ({ email, password }: FormUserData, { dispatch }) => {
         const { user } = await createUserWithEmailAndPassword(auth, email, password);
         dispatch(
             setUser({

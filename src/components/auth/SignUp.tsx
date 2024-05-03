@@ -1,38 +1,31 @@
+import { FirebaseError } from "firebase/app";
 import { useNavigate } from "react-router-dom";
 
 import { AuthForm } from "@/components/auth/AuthForm";
-import { ROUTES } from "@/const/routes";
 import { useAppDispatch } from "@/hooks/reduxHooks";
 import { registerUser } from "@/store/user/userThunk";
+import { FormUserData } from "@/types/auth";
+import { ROUTES } from "@/utils/constants/routes";
 
 export const SignUp = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
-    const handleSignUp = async (
-        email: string,
-        password: string,
-        event: React.FormEvent<HTMLFormElement>,
-    ) => {
-        event.preventDefault();
+    const handleSignUp = async ({ email, password }: FormUserData) => {
         try {
             await dispatch(registerUser({ email, password })).unwrap();
             navigate(ROUTES.HOME);
-        } catch (error: unknown) {
-            if (error instanceof Error) {
-                alert(error.message);
-            } else {
-                alert("An unexpected error occurred.");
-            }
+        } catch (error) {
+            alert((error as FirebaseError).message);
         }
     };
 
     return (
         <AuthForm
-            handleSubmit={handleSignUp}
+            handleForm={handleSignUp}
             headerText="Sign Up"
             submitText="Sign Up"
-            linkQuest="Already have an account?"
+            linkQuestionText="Already have an account?"
             linkUrl={ROUTES.LOGIN}
             linkText="Log In"
         />

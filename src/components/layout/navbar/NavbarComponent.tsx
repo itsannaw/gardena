@@ -2,8 +2,8 @@ import { Link, Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-or
 import { Link as LinkRouter, useLocation } from "react-router-dom";
 
 import { LogoutButton } from "@/components/buttons/logout/LogoutButton";
-import { ROUTES } from "@/const/routes";
 import { useAuth } from "@/hooks/useAuth";
+import { ROUTES } from "@/utils/constants/routes";
 
 import { GardenaLogo } from "./GardenaLogo";
 import { IconNavbarItem } from "./IconNavbarItem";
@@ -12,7 +12,7 @@ export const NavbarComponent = () => {
     const location = useLocation();
     const { isAuth } = useAuth();
 
-    const isHomePage = location.pathname === "/";
+    const isHomePage = location.pathname === ROUTES.HOME;
 
     return (
         <Navbar isBlurred shouldHideOnScroll maxWidth={"xl"} height={"80px"}>

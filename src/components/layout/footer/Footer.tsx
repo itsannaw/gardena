@@ -1,6 +1,6 @@
 import { Link } from "@nextui-org/react";
 
-import { URL } from "@/const/url";
+import { URL } from "@/utils/constants/url";
 
 export const Footer = () => {
     return (

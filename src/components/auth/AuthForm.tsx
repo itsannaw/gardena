@@ -1,19 +1,35 @@
-import { Button, Card, Input } from "@nextui-org/react";
-import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Button, Card } from "@nextui-org/react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
-import { AuthFormProps } from "@/types/auth";
+import { AuthFormProps, FormUserData } from "@/types/auth";
+import { authSchema } from "@/utils/zod/authSchema";
+
+import { EmailInput } from "../inputs/email/EmailInput";
+import { PasswordInput } from "../inputs/password/PasswordInput";
 
 export const AuthForm = ({
-    handleSubmit,
+    handleForm,
     headerText,
     submitText,
-    linkQuest,
+    linkQuestionText,
     linkUrl,
     linkText,
+    validatePassword = true,
 }: AuthFormProps) => {
-    const [email, setEmail] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
+    const schema = authSchema({ validatePassword });
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isSubmitting },
+    } = useForm<FormUserData>({
+        resolver: zodResolver(schema),
+    });
+
+    const onSubmit = (data: FormUserData) => {
+        handleForm(data);
+    };
 
     return (
         <section className="flex min-h-[calc(100vh-255px)] items-center justify-center">
@@ -34,42 +50,27 @@ export const AuthForm = ({
                 <span className="text-gray-400 ">Enter your email and password</span>
                 <form
                     className="mx-auto flex w-full max-w-md flex-col gap-8"
-                    onSubmit={(event) => handleSubmit(email, password, event)}
+                    onSubmit={handleSubmit(onSubmit)}
                 >
                     <div className="flex w-full flex-col items-center gap-5">
-                        <Input
-                            isClearable
-                            type="email"
-                            label="Email"
-                            variant="bordered"
-                            placeholder="Email address"
-                            className="max-w-xs"
-                            value={email}
-                            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                                setEmail(e.target.value)
-                            }
-                            onClear={() => setEmail("")}
-                        />
-                        <Input
-                            isClearable
-                            type="password"
-                            label="Password"
-                            variant="bordered"
-                            placeholder="Password"
-                            className="max-w-xs"
-                            value={password}
-                            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                                setPassword(e.target.value)
-                            }
-                            onClear={() => setPassword("")}
+                        <EmailInput register={register} name="email" error={errors.email} />
+                        <PasswordInput
+                            register={register}
+                            name="password"
+                            error={errors.password}
                         />
                     </div>
-                    <Button type="submit" className="w-full bg-button-green" variant="solid">
+                    <Button
+                        type="submit"
+                        className="w-full bg-button-green"
+                        variant="solid"
+                        isLoading={isSubmitting}
+                    >
                         {submitText}
                     </Button>
                 </form>
                 <div className="text-sm">
-                    {linkQuest} {""}
+                    {linkQuestionText} {""}
                     <Link className="border-b-2 text-sm" to={linkUrl} color="foreground">
                         {linkText}
                     </Link>

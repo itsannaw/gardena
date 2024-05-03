@@ -1,9 +1,7 @@
 import { useAppSelector } from "@/hooks/reduxHooks";
 
-export function useAuth() {
+export function useLoggedIn() {
     const { email } = useAppSelector((state) => state.userSlice);
 
-    return {
-        isAuth: !!email,
-    };
+    return !!email;
 }

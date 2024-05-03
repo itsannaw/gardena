@@ -1,2 +1,10 @@
+npm run format:fix
+npm run lint:fix
+
+if ! git diff --quiet
+  echo
+  exit 1
+fi
+
 npm run format
 npm run lint

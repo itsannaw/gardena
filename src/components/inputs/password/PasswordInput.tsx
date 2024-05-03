@@ -12,7 +12,7 @@ export const PasswordInput = ({ name, error, register, valueAsNumber }: FormUser
             variant="bordered"
             placeholder="Password"
             className="max-w-xs"
-            isInvalid={error?.message ? true : false}
+            isInvalid={!!error?.message}
             errorMessage={error?.message}
             color={error ? "danger" : "default"}
         />

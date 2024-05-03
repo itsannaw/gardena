@@ -12,7 +12,7 @@ export const EmailInput = ({ name, error, register, valueAsNumber }: FormUserFie
             variant="bordered"
             placeholder="Email"
             className="max-w-xs"
-            isInvalid={error?.message ? true : false}
+            isInvalid={!!error?.message}
             errorMessage={error?.message}
             color={error ? "danger" : "default"}
         />

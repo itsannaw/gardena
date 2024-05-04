@@ -5,3 +5,4 @@
 * Проект представляет собой галерею растений.
 * Использовано [Perenuale API](https://perenual.com/).
 * [Посмотреть проект](https://gardena-plant.vercel.app/).
+

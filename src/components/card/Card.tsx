@@ -1,14 +1,16 @@
 import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
-import { useNavigate } from "react-router-dom";
 
+import { useNavigateWithParams } from "@/hooks/useNavigateWithParams";
 import { CardComponentProps } from "@/types/ui";
 import { ROUTES } from "@/utils/constants/routes";
 
 export const CardComponent = ({ card }: CardComponentProps) => {
-    const navigate = useNavigate();
+    const { navigateWithParams } = useNavigateWithParams();
 
     const handleClick = () => {
-        navigate(ROUTES.PLANT_DETAIL.replace(":id", `${card.id}`));
+        navigateWithParams(ROUTES.PLANT_DETAIL, {
+            id: card.id,
+        });
     };
 
     return (

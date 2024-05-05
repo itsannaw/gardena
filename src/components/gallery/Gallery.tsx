@@ -16,7 +16,7 @@ export const Gallery = () => {
         <div id="gallery" className="flex flex-col justify-center gap-10">
             <h2 className="text-center text-2xl font-bold">Gallery</h2>
             <div className="flex flex-wrap justify-center gap-8">
-                {error && <p>{error.toString()}</p>}
+                {error && <p>Oops...</p>}
                 {isLoading ? (
                     <LinearLoading />
                 ) : (

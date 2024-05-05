@@ -1,4 +1,5 @@
-import { CardComponent, SearchInput } from "@/components";
+import { SearchInput } from "@/components";
+import { Gallery } from "@/components/gallery/Gallery";
 
 export const HomePage = () => {
     return (
@@ -41,15 +42,7 @@ export const HomePage = () => {
                     </div>
                 </div>
             </div>
-            <div id="gallery" className="flex flex-col justify-center gap-10">
-                <h2 className="text-center text-2xl font-bold">Gallery</h2>
-                <div className="flex flex-wrap justify-center gap-4 xl:justify-between">
-                    <CardComponent />
-                    <CardComponent />
-                    <CardComponent />
-                    <CardComponent />
-                </div>
-            </div>
+            <Gallery />
         </section>
     );
 };

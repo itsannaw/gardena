@@ -16,3 +16,4 @@ export const plantsApi = createApi({
     }),
 });
 
+export const { useGetPlantsQuery, useGetPlantByIdQuery } = plantsApi;

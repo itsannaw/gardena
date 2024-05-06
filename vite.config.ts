@@ -12,6 +12,7 @@ export default defineConfig({
             public: `${path.resolve(__dirname, "./public/")}`,
             pages: path.resolve(__dirname, "./src/pages"),
             types: `${path.resolve(__dirname, "./src/@types")}`,
+            store: `${path.resolve(__dirname, "./src/store")}`,
         },
     },
 });

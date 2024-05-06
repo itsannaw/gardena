@@ -4,7 +4,10 @@ import { URL } from "@/utils/constants/url";
 
 export const Footer = () => {
     return (
-        <div id="contacts" className="mb-3 mt-10 flex flex-col items-center justify-center gap-2">
+        <div
+            id="contacts"
+            className="mb-3 mt-12 flex flex-col items-center justify-center gap-2 border-t-1 pt-2"
+        >
             <Link
                 className="font-medium text-black hover:text-default-700 dark:hover:text-default-300"
                 href={URL.GITHUB}

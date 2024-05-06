@@ -25,7 +25,7 @@ export const Gallery = () => {
                             <CardComponent key={card.id} card={card} />
                         ))}
                         <Pagination
-                            total={data?.last_page}
+                            total={100}
                             color="default"
                             page={currentPage}
                             onChange={setCurrentPage}

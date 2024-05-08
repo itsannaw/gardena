@@ -22,16 +22,16 @@ export const CardComponent = ({ card }: CardComponentProps) => {
             onPress={handleClick}
         >
             <CardHeader className="flex-col items-center px-4 pb-0 pt-2">
-                <p className="text-tiny font-bold uppercase">{card.scientific_name}</p>
+                <p className="text-tiny font-bold uppercase">{card.scientificName}</p>
                 <small className="text-default-500">Cycle: {card.cycle} </small>
-                <h4 className="max-w-[300px] truncate text-large font-bold"> {card.common_name}</h4>
+                <h4 className="max-w-[300px] truncate text-large font-bold"> {card.commonName}</h4>
             </CardHeader>
             <CardBody className="items-center overflow-visible py-5">
-                {card.default_image?.medium_url ? (
+                {card.defaultImage?.mediumUrl ? (
                     <Image
                         alt="Plant"
                         className="rounded-xl object-cover"
-                        src={card.default_image?.medium_url}
+                        src={card.defaultImage?.mediumUrl}
                         width={300}
                         loading="lazy"
                     />

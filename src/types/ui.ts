@@ -1,10 +1,10 @@
 export type CardType = {
     id: number;
-    common_name: string;
-    scientific_name: string;
+    commonName: string;
+    scientificName: string;
     cycle: string;
-    default_image: {
-        medium_url: string;
+    defaultImage: {
+        mediumUrl: string;
     };
 };
 

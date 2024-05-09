@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import App from "@/App";
-import { ErrorPage, HomePage, PlantDetailPage, SignInPage, SignUpPage } from "@/pages";
+import { ErrorPage, HomePage, PlantDetailPage, SearchPage, SignInPage, SignUpPage } from "@/pages";
 import { ROUTES } from "@/utils/constants/routes";
 
 export const router = createBrowserRouter([
@@ -25,6 +25,10 @@ export const router = createBrowserRouter([
             {
                 path: ROUTES.PLANT_DETAIL,
                 element: <PlantDetailPage />,
+            },
+            {
+                path: ROUTES.SEARCH_PLANTS,
+                element: <SearchPage />,
             },
         ],
     },

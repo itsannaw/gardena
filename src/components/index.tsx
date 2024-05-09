@@ -6,8 +6,10 @@ import { CardDetail } from "./card/CardDetail";
 import { SearchInput } from "./inputs/search/SearchInput";
 import { Footer } from "./layout/footer/Footer";
 import { NavbarComponent } from "./layout/navbar/NavbarComponent";
+import { Search } from "./search/Search";
 
 export {
+    Search,
     NavbarComponent,
     SearchInput,
     Footer,

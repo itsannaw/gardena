@@ -6,6 +6,7 @@ import { CardType } from "@/types/ui";
 
 import { CardComponent } from "../card/Card";
 import { LinearLoading } from "../loading/LinearLoading";
+import { SearchInput } from "../inputs/search/SearchInput";
 
 export const Gallery = () => {
     const [currentPage, setCurrentPage] = useState<number>(1);
@@ -13,8 +14,9 @@ export const Gallery = () => {
     const { data, isLoading, error } = useGetPlantsQuery(currentPage);
 
     return (
-        <div id="gallery" className="flex flex-col justify-center gap-10">
+        <div id="gallery" className="flex flex-col justify-center gap-10 items-center">
             <h2 className="text-center text-2xl font-bold">Gallery</h2>
+            <SearchInput />
             <div className="flex flex-wrap justify-center gap-8">
                 {error && <p>Oops...</p>}
                 {isLoading ? (

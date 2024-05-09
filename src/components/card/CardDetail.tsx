@@ -12,8 +12,8 @@ export const CardDetail = () => {
     const { data, isLoading, error } = useGetPlantByIdQuery(id || "");
 
     return (
-        <div className="flex flex-col items-center justify-center">
-            {error && <p>Oops...</p>}
+        <div className="flex flex-col items-center justify-center ">
+            {error && <p className="min-h-[70vh]">Oops...</p>}
             {isLoading ? (
                 <LinearLoading />
             ) : (

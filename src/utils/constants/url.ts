@@ -8,5 +8,6 @@ export const API_PERENUAL = {
         `/species-list?key=${import.meta.env.VITE_APP_PERENUAL_API_KEY}&page=${page}`,
     PLANT_DETAILS: (id: string) =>
         `/species/details/${id}?key=${import.meta.env.VITE_APP_PERENUAL_API_KEY}`,
-    PLANT_SEARCH: (query: string) => `/species-list?key=${import.meta.env.VITE_APP_PERENUAL_API_KEY}&q=${query}`,
+    PLANT_SEARCH: (query: string) =>
+        `/species-list?key=${import.meta.env.VITE_APP_PERENUAL_API_KEY}&q=${query}`,
 };

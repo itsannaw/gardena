@@ -3,5 +3,5 @@ export const ROUTES = {
     LOGIN: "/signin",
     SIGNUP: "/signup",
     PLANT_DETAIL: "/plant/:id",
-    SEARCH_PLANTS: "/plants",
+    SEARCH_PLANTS: "/search",
 };

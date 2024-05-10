@@ -17,10 +17,11 @@ export const SearchInput = () => {
     const { navigateWithParams } = useNavigateWithParams();
     const navigateSearch = useNavigateSearch();
 
+
     const { data, isLoading, error } = useGetPlantBySearchQuery(debouncedQuery);
 
     const handleSearch = () => {
-        navigateSearch(ROUTES.SEARCH_PLANTS, { search: query });
+        navigateSearch(ROUTES.SEARCH_PLANTS, { q: query });
     };
 
     const handleKeyPress = (e: { key: string }) => {

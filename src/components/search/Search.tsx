@@ -9,13 +9,13 @@ import { LinearLoading } from "../loading/LinearLoading";
 
 export const Search = () => {
     const [searchParams] = useSearchParams();
-    const search = searchParams.get("search") ?? "";
+    const search = searchParams.get("q") ?? "";
 
     const { data, isLoading, error } = useGetPlantBySearchQuery(search);
 
     return (
         <div className="flex flex-col items-center justify-center gap-10">
-            <h2 className="text-center text-2xl font-bold">Search</h2>
+            <h2 className="text-center text-2xl font-bold">Search result by query "{search}"</h2>
             <SearchInput />
             {error && <p>Oops...</p>}
             {data?.total === 0 && <p>No results found</p>}

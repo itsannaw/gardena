@@ -25,20 +25,15 @@ export const CardDetail = () => {
                     {data && (
                         <Card className="flex max-w-[1200px] flex-wrap justify-between p-5">
                             <div className="flex justify-start gap-20">
-                                {data.defaultImage?.mediumUrl ? (
-                                    <img
-                                        className="w-[400px]"
-                                        src={data.defaultImage?.mediumUrl}
-                                        alt="Picture Plant"
-                                    />
-                                ) : (
-                                    <img
-                                        alt="Plant"
-                                        className="rounded-xl object-cover"
-                                        src="/gallery/missing_image.jpg"
-                                        width={400}
-                                    />
-                                )}
+                                <img
+                                    className="w-[400px]"
+                                    src={
+                                        data.defaultImage?.mediumUrl
+                                            ? data.defaultImage.mediumUrl
+                                            : "/gallery/missing_image.jpg"
+                                    }
+                                    alt="Picture Plant"
+                                />
                                 <div className="flex flex-col gap-5">
                                     <div>
                                         <h1 className="text-2xl font-bold">{data.commonName}</h1>

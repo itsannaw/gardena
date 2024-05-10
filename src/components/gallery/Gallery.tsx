@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import { useGetPlantsQuery } from "@/store/api/plantsApi";
 import { CardType } from "@/types/ui";
+import { NOTIFICATIONS } from "@/utils/constants/general";
 
 import { CardComponent } from "../card/Card";
 import { SearchInput } from "../inputs/search/SearchInput";
@@ -18,7 +19,7 @@ export const Gallery = () => {
             <h2 className="text-center text-2xl font-bold">Gallery</h2>
             <SearchInput />
             <div className="flex flex-wrap justify-center gap-8">
-                {error && <p>Oops...</p>}
+                {error && <p>{NOTIFICATIONS.ERROR}</p>}
                 {isLoading ? (
                     <LinearLoading />
                 ) : (

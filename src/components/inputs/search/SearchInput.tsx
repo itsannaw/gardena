@@ -1,33 +1,41 @@
 import { Input } from "@nextui-org/react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 import { useDebounce } from "@/hooks/useDebounce";
 import { useNavigateSearch } from "@/hooks/useNavigateSearch";
 import { useNavigateWithParams } from "@/hooks/useNavigateWithParams";
 import { useGetPlantBySearchQuery } from "@/store/api/plantsApi";
-import { SearchInputType } from "@/types/ui";
-import { ROUTES } from "@/utils/constants/routes";
+import { USED_KEYS } from "@/utils/constants/events";
+import { DEBOUNCE_TIMINGS, NOTIFICATIONS } from "@/utils/constants/general";
+import { ROUTES, ROUTE_PARAMS } from "@/utils/constants/routes";
 
-import { SearchIcon } from "./SearchIcon";
+import { SearchResults } from "./SearchResults";
 
 export const SearchInput = () => {
     const [query, setQuery] = useState("");
-    const debouncedQuery = useDebounce(query, 500);
+    const debouncedQuery = useDebounce(query, DEBOUNCE_TIMINGS.SEARCH);
     const { navigateWithParams } = useNavigateWithParams();
     const navigateSearch = useNavigateSearch();
-
+    const [isVisible, setIsVisible] = useState(false);
 
     const { data, isLoading, error } = useGetPlantBySearchQuery(debouncedQuery);
 
     const handleSearch = () => {
-        navigateSearch(ROUTES.SEARCH_PLANTS, { q: query });
+        navigateSearch(ROUTES.SEARCH_PLANTS, { [ROUTE_PARAMS.QUERY]: query });
     };
 
     const handleKeyPress = (e: { key: string }) => {
-        if (e.key === "Enter") {
+        if (e.key === USED_KEYS.ENTER) {
             handleSearch();
         }
+    };
+
+    const handleInputFocus = () => {
+        setIsVisible(true);
+    };
+
+    const handleInputBlur = () => {
+        setIsVisible(false);
     };
 
     return (
@@ -37,7 +45,7 @@ export const SearchInput = () => {
                 placeholder="Search plants"
                 endContent={
                     <button onClick={handleSearch}>
-                        <SearchIcon className="text-default-400" size={20} />
+                        <img className="h-4 w-4" src="/icons/search.svg" alt="Search" />
                     </button>
                 }
                 radius="full"
@@ -45,40 +53,16 @@ export const SearchInput = () => {
                 value={query}
                 onKeyDown={handleKeyPress}
                 onChange={(e) => setQuery(e.target.value)}
+                onFocus={handleInputFocus}
+                onBlur={handleInputBlur}
             />
-            {query.length > 0 && data && (
-                <div className="absolute top-[40px] z-20 flex max-h-[125px] w-full max-w-[370px] flex-col overflow-auto rounded-md border-2">
-                    {error || data.total === 0 ? (
-                        <span className="bg-white p-4 text-sm">No results found</span>
-                    ) : isLoading ? (
-                        <span className="bg-white p-4 text-sm">We're looking...</span>
-                    ) : (
-                        data.data.map((plant: SearchInputType) => (
-                            <Link
-                                key={plant.id}
-                                onClick={() => {
-                                    navigateWithParams(ROUTES.PLANT_DETAIL, {
-                                        id: plant.id,
-                                    });
-                                }}
-                                to={""}
-                            >
-                                <div className="flex items-center gap-3 border-b-2 bg-white px-3 py-2">
-                                    <img
-                                        className="h-5 w-5"
-                                        src={
-                                            plant.defaultImage?.thumbnail
-                                                ? plant.defaultImage.thumbnail
-                                                : "/gallery/missing_image.jpg"
-                                        }
-                                        alt="Plant"
-                                    />
-                                    <span>{plant.scientificName}</span>
-                                </div>
-                            </Link>
-                        ))
-                    )}
-                </div>
+            {error && <p>{NOTIFICATIONS.ERROR}</p>}
+            {data && isVisible && (
+                <SearchResults
+                    data={data}
+                    isLoading={isLoading}
+                    navigateWithParams={navigateWithParams}
+                />
             )}
         </div>
     );

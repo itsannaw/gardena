@@ -2,6 +2,7 @@ import { Card } from "@nextui-org/react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { useGetPlantByIdQuery } from "@/store/api/plantsApi";
+import { NOTIFICATIONS } from "@/utils/constants/general";
 
 import { LinearLoading } from "../loading/LinearLoading";
 
@@ -13,11 +14,11 @@ export const CardDetail = () => {
 
     return (
         <div className="flex flex-col items-center justify-center ">
-            {error && <p>Oops...</p>}
+            {error && <p>{NOTIFICATIONS.ERROR}</p>}
             {isLoading ? (
                 <LinearLoading />
             ) : (
-                <div className="flex flex-col items-start justify-start gap-2 ">
+                <div className="flex flex-col items-start justify-start gap-2">
                     <button className="text-base font-semibold" onClick={() => navigate(-1)}>
                         ← Go back
                     </button>

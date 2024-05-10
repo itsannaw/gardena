@@ -19,3 +19,9 @@ export type SearchInputType = {
         thumbnail: string;
     };
 };
+
+export interface SearchResultsProps {
+    data: { total: number; data: SearchInputType[] } | null;
+    isLoading: boolean;
+    navigateWithParams: (route: string, params: { id: number }) => void;
+}

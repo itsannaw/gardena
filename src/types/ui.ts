@@ -11,3 +11,11 @@ export type CardType = {
 export type CardComponentProps = {
     card: CardType;
 };
+
+export type SearchInputType = {
+    id: number;
+    scientificName: string;
+    defaultImage: {
+        thumbnail: string;
+    };
+};

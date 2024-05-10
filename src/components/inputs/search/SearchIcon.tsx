@@ -6,7 +6,13 @@ type SearchIconProps = {
     height?: number;
 };
 
-export const SearchIcon = ({ size = 24, strokeWidth = 1.5, width, height, ...props }: SearchIconProps) => (
+export const SearchIcon = ({
+    size = 24,
+    strokeWidth = 1.5,
+    width,
+    height,
+    ...props
+}: SearchIconProps) => (
     <svg
         aria-hidden="true"
         fill="none"

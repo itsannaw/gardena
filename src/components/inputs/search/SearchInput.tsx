@@ -30,7 +30,7 @@ export const SearchInput = () => {
     };
 
     return (
-        <>
+        <div className="relative flex w-full max-w-sm items-center justify-center">
             <Input
                 className="relative max-w-sm"
                 placeholder="Search plants"
@@ -46,7 +46,7 @@ export const SearchInput = () => {
                 onChange={(e) => setQuery(e.target.value)}
             />
             {query.length > 0 && data && (
-                <div className="absolute top-[725px] z-20 flex max-h-[125px] w-full max-w-[370px] flex-col overflow-auto rounded-md border-2">
+                <div className="absolute top-[40px] z-20 flex max-h-[125px] w-full max-w-[370px] flex-col overflow-auto rounded-md border-2">
                     {error || data.total === 0 ? (
                         <span className="bg-white p-4 text-sm">No results found</span>
                     ) : isLoading ? (
@@ -79,6 +79,6 @@ export const SearchInput = () => {
                     )}
                 </div>
             )}
-        </>
+        </div>
     );
 };

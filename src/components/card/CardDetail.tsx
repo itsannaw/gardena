@@ -13,7 +13,7 @@ export const CardDetail = () => {
 
     return (
         <div className="flex flex-col items-center justify-center ">
-            {error && <p className="min-h-[70vh]">Oops...</p>}
+            {error && <p>Oops...</p>}
             {isLoading ? (
                 <LinearLoading />
             ) : (

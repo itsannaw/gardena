@@ -15,8 +15,10 @@ export const Search = () => {
 
     return (
         <div className="flex flex-col items-center justify-center gap-10">
+            <h2 className="text-center text-2xl font-bold">Search</h2>
             <SearchInput />
             {error && <p>Oops...</p>}
+            {data?.total === 0 && <p>No results found</p>}
             {isLoading ? (
                 <LinearLoading />
             ) : (

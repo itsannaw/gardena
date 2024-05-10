@@ -27,22 +27,17 @@ export const CardComponent = ({ card }: CardComponentProps) => {
                 <h4 className="max-w-[300px] truncate text-large font-bold"> {card.commonName}</h4>
             </CardHeader>
             <CardBody className="items-center overflow-visible py-5">
-                {card.defaultImage?.mediumUrl ? (
-                    <Image
-                        alt="Plant"
-                        className="rounded-xl object-cover"
-                        src={card.defaultImage?.mediumUrl}
-                        width={300}
-                        loading="lazy"
-                    />
-                ) : (
-                    <Image
-                        alt="Plant"
-                        className="rounded-xl object-cover"
-                        src="/gallery/missing_image.jpg"
-                        width={300}
-                    />
-                )}
+                <Image
+                    alt="Plant"
+                    className="rounded-xl object-cover"
+                    src={
+                        card.defaultImage?.mediumUrl
+                            ? card.defaultImage.mediumUrl
+                            : "/gallery/missing_image.jpg"
+                    }
+                    width={300}
+                    loading="lazy"
+                />
             </CardBody>
         </Card>
     );

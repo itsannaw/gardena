@@ -1,29 +1,64 @@
 import { Input } from "@nextui-org/react";
+import { useRef, useState } from "react";
 
-const SearchIcon = () => (
-    <button className="rounded-xl bg-light-green p-2">
-        <img src="/icons/search.svg" alt="Search" className="h-5 w-5" />
-    </button>
-);
+import useClickOutside from "@/hooks/useClickOutside";
+import { useDebounce } from "@/hooks/useDebounce";
+import { useNavigateSearch } from "@/hooks/useNavigateSearch";
+import { useGetPlantBySearchQuery } from "@/store/api/plantsApi";
+import { USED_KEYS } from "@/utils/constants/events";
+import { DEBOUNCE_TIMINGS, NOTIFICATIONS } from "@/utils/constants/general";
+import { ROUTES, ROUTE_PARAMS } from "@/utils/constants/routes";
+
+import { SearchResults } from "./SearchResults";
 
 export const SearchInput = () => {
+    const wrapperRef = useRef(null);
+    const [query, setQuery] = useState("");
+    const debouncedQuery = useDebounce(query, DEBOUNCE_TIMINGS.SEARCH);
+    const navigateSearch = useNavigateSearch();
+    const [isVisible, setIsVisible] = useState(false);
+
+    const { data, isLoading, error } = useGetPlantBySearchQuery(debouncedQuery);
+
+    const handleSearch = () => {
+        navigateSearch(ROUTES.SEARCH_PLANTS, { [ROUTE_PARAMS.QUERY]: query });
+    };
+
+    const handleKeyPress = (e: { key: string }) => {
+        if (e.key === USED_KEYS.ENTER) {
+            handleSearch();
+        }
+    };
+
+    const handleOpen = () => {
+        setIsVisible(true);
+    };
+
+    const handleClose = () => {
+        setIsVisible(false);
+    };
+
+    useClickOutside(wrapperRef, handleClose);
+
     return (
-        <Input
-            classNames={{
-                input: [
-                    "text-black/90 dark:text-white/90",
-                    "placeholder:text-default-700/50 dark:placeholder:text-white/60",
-                ],
-                inputWrapper: [
-                    "bg-background",
-                    "hover:!bg-background",
-                    "focus-within:!bg-background",
-                ],
-            }}
-            radius="lg"
-            size="lg"
-            placeholder="What are you looking for?"
-            endContent={<SearchIcon />}
-        />
+        <div ref={wrapperRef} className="relative flex w-full max-w-sm items-center justify-center">
+            <Input
+                className="relative max-w-sm"
+                placeholder="Search plants"
+                endContent={
+                    <button onClick={handleSearch}>
+                        <img className="h-4 w-4" src="/icons/search.svg" alt="Search" />
+                    </button>
+                }
+                radius="full"
+                variant="bordered"
+                value={query}
+                onKeyDown={handleKeyPress}
+                onChange={(e) => setQuery(e.target.value)}
+                onFocus={handleOpen}
+            />
+            {error && <p>{NOTIFICATIONS.ERROR}</p>}
+            {data && isVisible && <SearchResults data={data} isLoading={isLoading} />}
+        </div>
     );
 };

@@ -3,8 +3,10 @@ import { useState } from "react";
 
 import { useGetPlantsQuery } from "@/store/api/plantsApi";
 import { CardType } from "@/types/ui";
+import { NOTIFICATIONS } from "@/utils/constants/general";
 
 import { CardComponent } from "../card/Card";
+import { SearchInput } from "../inputs/search/SearchInput";
 import { LinearLoading } from "../loading/LinearLoading";
 
 export const Gallery = () => {
@@ -13,10 +15,11 @@ export const Gallery = () => {
     const { data, isLoading, error } = useGetPlantsQuery(currentPage);
 
     return (
-        <div id="gallery" className="flex flex-col justify-center gap-10">
+        <div id="gallery" className="flex flex-col items-center justify-center gap-10">
             <h2 className="text-center text-2xl font-bold">Gallery</h2>
+            <SearchInput />
             <div className="flex flex-wrap justify-center gap-8">
-                {error && <p>Oops...</p>}
+                {error && <p>{NOTIFICATIONS.ERROR}</p>}
                 {isLoading ? (
                     <LinearLoading />
                 ) : (

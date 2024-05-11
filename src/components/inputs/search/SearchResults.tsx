@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 
+import { useNavigateWithParams } from "@/hooks/useNavigateWithParams";
 import { SearchInputType, SearchResultsProps } from "@/types/ui";
 import { ROUTES } from "@/utils/constants/routes";
 
-export const SearchResults = ({ data, isLoading, navigateWithParams }: SearchResultsProps) => {
+export const SearchResults = ({ data, isLoading }: SearchResultsProps) => {
+    const { navigateWithParams } = useNavigateWithParams();
+
     return (
         <div className="absolute top-[40px] z-20 flex max-h-[125px] w-full max-w-[370px] flex-col overflow-auto rounded-md border-2">
             {!data?.total ? (

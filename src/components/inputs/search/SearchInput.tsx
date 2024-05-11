@@ -1,9 +1,9 @@
 import { Input } from "@nextui-org/react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
+import useClickOutside from "@/hooks/useClickOutside";
 import { useDebounce } from "@/hooks/useDebounce";
 import { useNavigateSearch } from "@/hooks/useNavigateSearch";
-import { useNavigateWithParams } from "@/hooks/useNavigateWithParams";
 import { useGetPlantBySearchQuery } from "@/store/api/plantsApi";
 import { USED_KEYS } from "@/utils/constants/events";
 import { DEBOUNCE_TIMINGS, NOTIFICATIONS } from "@/utils/constants/general";
@@ -12,9 +12,9 @@ import { ROUTES, ROUTE_PARAMS } from "@/utils/constants/routes";
 import { SearchResults } from "./SearchResults";
 
 export const SearchInput = () => {
+    const wrapperRef = useRef(null);
     const [query, setQuery] = useState("");
     const debouncedQuery = useDebounce(query, DEBOUNCE_TIMINGS.SEARCH);
-    const { navigateWithParams } = useNavigateWithParams();
     const navigateSearch = useNavigateSearch();
     const [isVisible, setIsVisible] = useState(false);
 
@@ -30,16 +30,18 @@ export const SearchInput = () => {
         }
     };
 
-    const handleInputFocus = () => {
+    const handleOpen = () => {
         setIsVisible(true);
     };
 
-    const handleInputBlur = () => {
+    const handleClose = () => {
         setIsVisible(false);
     };
 
+    useClickOutside(wrapperRef, handleClose);
+
     return (
-        <div className="relative flex w-full max-w-sm items-center justify-center">
+        <div ref={wrapperRef} className="relative flex w-full max-w-sm items-center justify-center">
             <Input
                 className="relative max-w-sm"
                 placeholder="Search plants"
@@ -53,17 +55,10 @@ export const SearchInput = () => {
                 value={query}
                 onKeyDown={handleKeyPress}
                 onChange={(e) => setQuery(e.target.value)}
-                onFocus={handleInputFocus}
-                onBlur={handleInputBlur}
+                onFocus={handleOpen}
             />
             {error && <p>{NOTIFICATIONS.ERROR}</p>}
-            {data && isVisible && (
-                <SearchResults
-                    data={data}
-                    isLoading={isLoading}
-                    navigateWithParams={navigateWithParams}
-                />
-            )}
+            {data && isVisible && <SearchResults data={data} isLoading={isLoading} />}
         </div>
     );
 };

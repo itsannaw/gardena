@@ -23,5 +23,4 @@ export type SearchInputType = {
 export interface SearchResultsProps {
     data: { total: number; data: SearchInputType[] } | null;
     isLoading: boolean;
-    navigateWithParams: (route: string, params: { id: number }) => void;
 }

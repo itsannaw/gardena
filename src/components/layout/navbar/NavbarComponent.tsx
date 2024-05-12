@@ -2,7 +2,8 @@ import { Link, Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-or
 import { Link as LinkRouter, useLocation } from "react-router-dom";
 
 import { LogoutButton } from "@/components/buttons/logout/LogoutButton";
-import { useLoggedIn } from "@/hooks/useLoggedIn";
+import { SpinnerLoading } from "@/components/loading/SpinnerLoading";
+import { useIsLoggedIn } from "@/utils/authUtils";
 import { ROUTES } from "@/utils/constants/routes";
 
 import { GardenaLogo } from "./GardenaLogo";
@@ -10,7 +11,7 @@ import { IconNavbarItem } from "./IconNavbarItem";
 
 export const NavbarComponent = () => {
     const location = useLocation();
-    const isLoggedIn = useLoggedIn();
+    const { isLoggedIn, loading } = useIsLoggedIn();
 
     const isHomePage = location.pathname === ROUTES.HOME;
 
@@ -41,7 +42,9 @@ export const NavbarComponent = () => {
                 )}
             </NavbarContent>
             <NavbarContent justify="end">
-                {isLoggedIn && (
+                {loading ? (
+                    <SpinnerLoading />
+                ) : isLoggedIn ? (
                     <>
                         <IconNavbarItem
                             iconSrc="/icons/heart.svg"
@@ -57,8 +60,7 @@ export const NavbarComponent = () => {
                         />
                         <LogoutButton />
                     </>
-                )}
-                {!isLoggedIn && (
+                ) : (
                     <>
                         <NavbarItem>
                             <LinkRouter color="foreground" to={ROUTES.LOGIN}>

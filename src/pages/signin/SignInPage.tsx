@@ -1,5 +1,13 @@
-import { SignIn } from "@/components";
+import { Suspense, lazy } from "react";
+
+import { LinearLoading } from "@/components";
+
+const SignIn = lazy(() => import("@/components/auth/SignIn"));
 
 export const SignInPage = () => {
-    return <SignIn />;
+    return (
+        <Suspense fallback={<LinearLoading />}>
+            <SignIn />
+        </Suspense>
+    );
 };

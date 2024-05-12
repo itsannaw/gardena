@@ -4,6 +4,8 @@ import App from "@/App";
 import { ErrorPage, HomePage, PlantDetailPage, SearchPage, SignInPage, SignUpPage } from "@/pages";
 import { ROUTES } from "@/utils/constants/routes";
 
+import { ProtectedRoute } from "./ProtectedRoute";
+
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -16,11 +18,19 @@ export const router = createBrowserRouter([
             },
             {
                 path: ROUTES.LOGIN,
-                element: <SignInPage />,
+                element: (
+                    <ProtectedRoute authRequired={false}>
+                        <SignInPage />
+                    </ProtectedRoute>
+                ),
             },
             {
                 path: ROUTES.SIGNUP,
-                element: <SignUpPage />,
+                element: (
+                    <ProtectedRoute authRequired={false}>
+                        <SignUpPage />
+                    </ProtectedRoute>
+                ),
             },
             {
                 path: ROUTES.PLANT_DETAIL,

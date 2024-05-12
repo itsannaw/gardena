@@ -1,4 +1,8 @@
-import { Gallery } from "@/components/gallery/Gallery";
+import { Suspense, lazy } from "react";
+
+import { LinearLoading } from "@/components";
+
+const Gallery = lazy(() => import("@/components/gallery/Gallery"));
 
 export const HomePage = () => {
     return (
@@ -40,7 +44,9 @@ export const HomePage = () => {
                     </div>
                 </div>
             </div>
-            <Gallery />
+            <Suspense fallback={<LinearLoading />}>
+                <Gallery />
+            </Suspense>
         </section>
     );
 };

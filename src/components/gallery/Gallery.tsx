@@ -9,7 +9,7 @@ import { CardComponent } from "../card/Card";
 import { SearchInput } from "../inputs/search/SearchInput";
 import { LinearLoading } from "../loading/LinearLoading";
 
-export const Gallery = () => {
+const Gallery = () => {
     const [currentPage, setCurrentPage] = useState<number>(1);
 
     const { data, isLoading, error } = useGetPlantsQuery(currentPage);
@@ -39,3 +39,6 @@ export const Gallery = () => {
         </div>
     );
 };
+
+export default Gallery;
+

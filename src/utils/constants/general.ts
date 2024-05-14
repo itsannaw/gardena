@@ -3,5 +3,5 @@ export const DEBOUNCE_TIMINGS = {
 };
 
 export const NOTIFICATIONS = {
-    ERROR: "Oops... There was an error.",
+    ERROR: "Oops... There was an error. You can do it later!",
 };

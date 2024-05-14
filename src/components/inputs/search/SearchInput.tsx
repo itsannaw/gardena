@@ -9,7 +9,7 @@ import { useNavigateSearch } from "@/hooks/useNavigateSearch";
 import { useGetPlantBySearchQuery } from "@/store/api/plantsApi";
 import { addSearchQuery } from "@/store/search/searchQueriesThunk";
 import { USED_KEYS } from "@/utils/constants/events";
-import { DEBOUNCE_TIMINGS, NOTIFICATIONS } from "@/utils/constants/general";
+import { DEBOUNCE_TIMINGS } from "@/utils/constants/general";
 import { ROUTES, ROUTE_PARAMS } from "@/utils/constants/routes";
 
 import { SearchResults } from "./SearchResults";
@@ -77,8 +77,7 @@ export const SearchInput = () => {
                 onChange={(e) => setQuery(e.target.value)}
                 onFocus={handleOpen}
             />
-            {error && <p>{NOTIFICATIONS.ERROR}</p>}
-            {data && isVisible && <SearchResults data={data} isLoading={isLoading} />}
+            {data && isVisible && <SearchResults data={data} isLoading={isLoading} error={error} />}
         </div>
     );
 };

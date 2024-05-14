@@ -2,19 +2,20 @@ import { Link } from "react-router-dom";
 
 import { useNavigateWithParams } from "@/hooks/useNavigateWithParams";
 import { SearchInputType, SearchResultsProps } from "@/types/ui";
+import { NOTIFICATIONS } from "@/utils/constants/general";
 import { ROUTES } from "@/utils/constants/routes";
 
-export const SearchResults = ({ data, isLoading }: SearchResultsProps) => {
+export const SearchResults = ({ data, isLoading, error }: SearchResultsProps) => {
     const { navigateWithParams } = useNavigateWithParams();
 
     return (
         <div className="absolute top-[40px] z-20 flex max-h-[125px] w-full max-w-[370px] flex-col overflow-auto rounded-md border-2">
-            {!data?.total ? (
-                <span className="bg-white p-4 text-sm">No results found</span>
+            {error ? (
+                <span className="bg-white p-4 text-sm">{NOTIFICATIONS.ERROR}</span>
             ) : isLoading ? (
                 <span className="bg-white p-4 text-sm">We're looking...</span>
             ) : (
-                data.data.map((plant: SearchInputType) => (
+                data?.data.map((plant: SearchInputType) => (
                     <Link
                         key={plant.id}
                         onClick={() => {

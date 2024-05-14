@@ -44,7 +44,7 @@ const HistoryPage = () => {
                             <div className="flex w-full justify-end">
                                 <DeleteAllHistoryButton />
                             </div>
-                            <div className="max-h-[600px] w-full max-w-[500px] overflow-y-auto">
+                            <div className="max-h-[500px] w-full max-w-[500px] overflow-y-auto">
                                 <table
                                     className="w-full table-auto text-center"
                                     aria-label="Table of search history"

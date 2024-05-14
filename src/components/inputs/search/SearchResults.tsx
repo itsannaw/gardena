@@ -14,6 +14,8 @@ export const SearchResults = ({ data, isLoading, error }: SearchResultsProps) =>
                 <span className="bg-white p-4 text-sm">{NOTIFICATIONS.ERROR}</span>
             ) : isLoading ? (
                 <span className="bg-white p-4 text-sm">We're looking...</span>
+            ) : !data?.total ? (
+                <span className="bg-white p-4 text-sm">No results found</span>
             ) : (
                 data?.data.map((plant: SearchInputType) => (
                     <Link

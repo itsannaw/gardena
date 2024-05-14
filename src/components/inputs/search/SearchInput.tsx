@@ -27,17 +27,19 @@ export const SearchInput = () => {
 
     const { data, isLoading, error } = useGetPlantBySearchQuery(debouncedQuery);
 
-    const handleSearch = () => {
-        if (userId && query) {
-            dispatch(addSearchQuery({ userId, query }))
-                .unwrap()
-                .then(() => {
-                    navigateSearch(ROUTES.SEARCH_PLANTS, { [ROUTE_PARAMS.QUERY]: query });
-                })
-                .catch(() => {
-                    alert("Failed to add search query");
-                });
+    const handleSearch = async () => {
+        if (!query) return;
+
+        if (userId) {
+            try {
+                await dispatch(addSearchQuery({ userId, query })).unwrap();
+            } catch (error) {
+                alert("Failed to add search query. Please try again.");
+                return;
+            }
         }
+
+        navigateSearch(ROUTES.SEARCH_PLANTS, { [ROUTE_PARAMS.QUERY]: query });
     };
 
     useEffect(() => {

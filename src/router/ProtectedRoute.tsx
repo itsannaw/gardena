@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { useAppSelector } from "@/hooks/reduxHooks";
@@ -14,7 +14,11 @@ export const ProtectedRoute = ({
     const email = useAppSelector((state) => state.userSlice.email);
     const navigate = useNavigate();
 
-    email && authRequired ? children : navigate(ROUTES.HOME, { replace: true });
+    useEffect(() => {
+        if ((!email && authRequired) || (email && !authRequired)) {
+            navigate(ROUTES.HOME, { replace: true });
+        }
+    }, [email, authRequired, navigate]);
 
-    return children;
+    return <>{children}</>;
 };

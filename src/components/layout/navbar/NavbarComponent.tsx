@@ -1,6 +1,7 @@
 import { Link, Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/react";
 import { Link as LinkRouter, useLocation } from "react-router-dom";
 
+import { HistoryButton } from "@/components/buttons/history/HistoryButton";
 import { LogoutButton } from "@/components/buttons/logout/LogoutButton";
 import { useIsLoggedIn } from "@/hooks/useIsLoggedIn";
 import { ROUTES } from "@/utils/constants/routes";
@@ -49,12 +50,7 @@ export const NavbarComponent = () => {
                             tooltipContent="Your favourite plants"
                             href="#"
                         />
-                        <IconNavbarItem
-                            iconSrc="/icons/book.svg"
-                            iconAlt="History"
-                            tooltipContent="Your search history"
-                            href="#"
-                        />
+                        <HistoryButton />
                         <LogoutButton />
                     </>
                 ) : (

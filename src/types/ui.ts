@@ -24,3 +24,7 @@ export interface SearchResultsProps {
     data: { total: number; data: SearchInputType[] } | null;
     isLoading: boolean;
 }
+
+export interface DeleteHistoryButtonProps {
+    onDelete: () => void;
+}

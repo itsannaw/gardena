@@ -1,7 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import App from "@/App";
-import { ErrorPage, HomePage, PlantDetailPage, SearchPage, SignInPage, SignUpPage } from "@/pages";
+import {
+    ErrorPage,
+    HistoryPage,
+    HomePage,
+    PlantDetailPage,
+    SearchPage,
+    SignInPage,
+    SignUpPage,
+} from "@/pages";
 import { ROUTES } from "@/utils/constants/routes";
 
 import { ProtectedRoute } from "./ProtectedRoute";
@@ -39,6 +47,14 @@ export const router = createBrowserRouter([
             {
                 path: ROUTES.SEARCH_PLANTS,
                 element: <SearchPage />,
+            },
+            {
+                path: ROUTES.HISTORY,
+                element: (
+                    <ProtectedRoute authRequired={true}>
+                        <HistoryPage />
+                    </ProtectedRoute>
+                ),
             },
         ],
     },

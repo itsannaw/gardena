@@ -4,6 +4,7 @@ export const ROUTES = {
     SIGNUP: "/signup",
     PLANT_DETAIL: "/plant/:id",
     SEARCH_PLANTS: "/search",
+    HISTORY: "/history",
 };
 
 export const ROUTE_PARAMS = {

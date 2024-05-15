@@ -7,7 +7,7 @@ import { loginUser } from "@/store/user/userThunk";
 import { FormUserData } from "@/types/auth";
 import { ROUTES } from "@/utils/constants/routes";
 
-export const SignIn = () => {
+const SignIn = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
@@ -32,3 +32,5 @@ export const SignIn = () => {
         />
     );
 };
+
+export default SignIn;

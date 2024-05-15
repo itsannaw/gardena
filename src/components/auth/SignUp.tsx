@@ -7,7 +7,7 @@ import { registerUser } from "@/store/user/userThunk";
 import { FormUserData } from "@/types/auth";
 import { ROUTES } from "@/utils/constants/routes";
 
-export const SignUp = () => {
+const SignUp = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
@@ -31,3 +31,5 @@ export const SignUp = () => {
         />
     );
 };
+
+export default SignUp;

@@ -9,7 +9,7 @@ import { CardComponent } from "../card/Card";
 import { SearchInput } from "../inputs/search/SearchInput";
 import { LinearLoading } from "../loading/LinearLoading";
 
-export const Gallery = () => {
+const Gallery = () => {
     const [currentPage, setCurrentPage] = useState<number>(1);
 
     const { data, isLoading, error } = useGetPlantsQuery(currentPage);
@@ -18,24 +18,23 @@ export const Gallery = () => {
         <div id="gallery" className="flex flex-col items-center justify-center gap-10">
             <h2 className="text-center text-2xl font-bold">Gallery</h2>
             <SearchInput />
-            <div className="flex flex-wrap justify-center gap-8">
-                {error && <p>{NOTIFICATIONS.ERROR}</p>}
-                {isLoading ? (
-                    <LinearLoading />
-                ) : (
-                    <>
-                        {data?.data?.map((card: CardType) => (
-                            <CardComponent key={card.id} card={card} />
-                        ))}
-                        <Pagination
-                            total={100}
-                            color="default"
-                            page={currentPage}
-                            onChange={setCurrentPage}
-                        />
-                    </>
-                )}
-            </div>
+            {error && <p>{NOTIFICATIONS.ERROR}</p>}
+            {!isLoading && !error && (
+                <div className="flex flex-wrap justify-center gap-8">
+                    {data?.data?.map((card: CardType) => (
+                        <CardComponent key={card.id} card={card} />
+                    ))}
+                    <Pagination
+                        total={100}
+                        color="default"
+                        page={currentPage}
+                        onChange={setCurrentPage}
+                    />
+                </div>
+            )}
+            {isLoading && <LinearLoading />}
         </div>
     );
 };
+
+export default Gallery;

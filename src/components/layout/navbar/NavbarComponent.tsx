@@ -1,13 +1,11 @@
 import { Link, Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/react";
 import { Link as LinkRouter, useLocation } from "react-router-dom";
 
-import { HistoryButton } from "@/components/buttons/history/HistoryButton";
-import { LogoutButton } from "@/components/buttons/logout/LogoutButton";
+import { FavouriteLinkButton, HistoryLinkButton, LogoutButton } from "@/components/buttons";
 import { useIsLoggedIn } from "@/hooks/useIsLoggedIn";
 import { ROUTES } from "@/utils/constants/routes";
 
 import { GardenaLogo } from "./GardenaLogo";
-import { IconNavbarItem } from "./IconNavbarItem";
 
 export const NavbarComponent = () => {
     const location = useLocation();
@@ -44,13 +42,8 @@ export const NavbarComponent = () => {
             <NavbarContent justify="end">
                 {isLoggedIn ? (
                     <>
-                        <IconNavbarItem
-                            iconSrc="/icons/heart.svg"
-                            iconAlt="Heart"
-                            tooltipContent="Your favourite plants"
-                            href="#"
-                        />
-                        <HistoryButton />
+                        <FavouriteLinkButton />
+                        <HistoryLinkButton />
                         <LogoutButton />
                     </>
                 ) : (

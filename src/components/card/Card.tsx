@@ -4,6 +4,8 @@ import { useNavigateWithParams } from "@/hooks/useNavigateWithParams";
 import { CardComponentProps } from "@/types/ui";
 import { ROUTES } from "@/utils/constants/routes";
 
+import { LikeButton } from "../buttons";
+
 export const CardComponent = ({ card }: CardComponentProps) => {
     const { navigateWithParams } = useNavigateWithParams();
 
@@ -21,6 +23,7 @@ export const CardComponent = ({ card }: CardComponentProps) => {
             isPressable
             onPress={handleClick}
         >
+            <LikeButton className="absolute z-20" />
             <CardHeader className="flex-col items-center px-4 pb-0 pt-2">
                 <p className="text-tiny font-bold uppercase">{card.scientificName}</p>
                 <small className="text-default-500">Cycle: {card.cycle} </small>

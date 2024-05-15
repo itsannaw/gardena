@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { ROUTES } from "@/utils/constants/routes";
 
-export const HistoryButton = () => {
+export const HistoryLinkButton = () => {
     const navigate = useNavigate();
 
     const handleClick = () => {

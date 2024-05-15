@@ -1,12 +1,17 @@
 import { Card } from "@nextui-org/react";
 import { useNavigate, useParams } from "react-router-dom";
 
+import { useAppSelector } from "@/hooks/reduxHooks";
+import useFetchUserFavourites from "@/hooks/useFetchUserFavourites";
 import { useGetPlantByIdQuery } from "@/store/api/plantsApi";
 import { NOTIFICATIONS } from "@/utils/constants/general";
 
+import { FavouriteButton } from "../buttons";
 import { LinearLoading } from "../loading/LinearLoading";
 
 export const CardDetail = () => {
+    const userId = useAppSelector((state) => state.userSlice.id);
+    const { favouriteIds } = useFetchUserFavourites();
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -35,6 +40,14 @@ export const CardDetail = () => {
                                     alt="Picture Plant"
                                 />
                                 <div className="flex flex-col gap-5">
+                                    {userId && (
+                                        <FavouriteButton
+                                            className="absolute right-7"
+                                            cardId={data?.id.toString()}
+                                            userId={userId || ""}
+                                            liked={favouriteIds.includes(data.id)}
+                                        />
+                                    )}
                                     <div>
                                         <h1 className="text-2xl font-bold">{data.commonName}</h1>
                                         <p className="text-sm">{data.scientificName}</p>

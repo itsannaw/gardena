@@ -13,6 +13,7 @@ export type CardType = {
 
 export type CardComponentProps = {
     card: CardType;
+    liked: boolean;
 };
 
 export type SearchInputType = {

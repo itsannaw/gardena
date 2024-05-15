@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "@/App";
 import {
     ErrorPage,
+    FavouritePage,
     HistoryPage,
     HomePage,
     PlantDetailPage,
@@ -53,6 +54,14 @@ export const router = createBrowserRouter([
                 element: (
                     <ProtectedRoute authRequired={true}>
                         <HistoryPage />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: ROUTES.FAVOURITE,
+                element: (
+                    <ProtectedRoute authRequired={true}>
+                        <FavouritePage />
                     </ProtectedRoute>
                 ),
             },

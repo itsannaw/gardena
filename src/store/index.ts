@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 
+import likesSlice from "@/store/likes/likesSlice";
 import searchQueriesSlice from "@/store/search/searchQueriesSlice";
 import userSlice from "@/store/user/userSlice";
 
@@ -9,6 +10,7 @@ export const store = configureStore({
     reducer: {
         userSlice,
         searchQueriesSlice,
+        likesSlice,
         [plantsApi.reducerPath]: plantsApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>

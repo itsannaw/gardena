@@ -6,7 +6,6 @@ import { HeartIcon } from "./HeartIcon";
 export const LikeButton = ({ className }: { className?: string }) => {
     const [liked, setLiked] = useState(false);
 
-
     return (
         <Button
             isIconOnly

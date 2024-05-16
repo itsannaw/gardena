@@ -26,7 +26,7 @@ export const CardComponent = ({ card, liked }: CardComponentProps) => {
                 <FavouriteButton
                     className="absolute z-20"
                     liked={liked}
-                    cardId={card.id.toString()}
+                    cardId={card?.id.toString()}
                     userId={userId?.toString() || ""}
                 />
             )}

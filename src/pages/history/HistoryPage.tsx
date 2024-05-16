@@ -2,6 +2,7 @@ import { useEffect, useMemo } from "react";
 
 import { DeleteAllHistoryButton } from "@/components/buttons/history/DeleteAllHistoryButton";
 import { DeleteHistoryButton } from "@/components/buttons/history/DeleteHistoryButton";
+import { SpinnerLoading } from "@/components/loading/SpinnerLoading";
 import { useAppDispatch, useAppSelector } from "@/hooks/reduxHooks";
 import { useNavigateSearch } from "@/hooks/useNavigateSearch";
 import { deleteSearchQuery, fetchUserSearchQueries } from "@/store/search/searchQueriesThunk";
@@ -33,7 +34,11 @@ const HistoryPage = () => {
     return (
         <div className="flex flex-col items-center justify-center gap-8">
             <h2 className="text-center text-2xl font-bold">Search History</h2>
-            {status === "loading" && <div>Loading...</div>}
+            {status === "loading" && (
+                <div>
+                    <SpinnerLoading />
+                </div>
+            )}
             {status === "failed" && <div>Error: {error}</div>}
             {status === "succeeded" && (
                 <>
@@ -41,9 +46,12 @@ const HistoryPage = () => {
                         <span>You don't have any search stories yet!</span>
                     ) : (
                         <>
-                            <div className="flex w-full justify-end">
-                                <DeleteAllHistoryButton />
-                            </div>
+                            {queries.length && (
+                                <div className="flex w-full justify-end">
+                                    <DeleteAllHistoryButton />
+                                </div>
+                            )}
+
                             <div className="max-h-[500px] w-full max-w-[500px] overflow-y-auto">
                                 <table
                                     className="w-full table-auto text-center"

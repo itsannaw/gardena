@@ -1,5 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 
+import useFetchUserFavourites from "@/hooks/useFetchUserFavourites";
 import { useGetPlantBySearchQuery } from "@/store/api/plantsApi";
 import { CardType } from "@/types/ui";
 
@@ -8,6 +9,7 @@ import { SearchInput } from "../inputs/search/SearchInput";
 import { LinearLoading } from "../loading/LinearLoading";
 
 export const Search = () => {
+    const { favouriteIds } = useFetchUserFavourites();
     const [searchParams] = useSearchParams();
     const query = searchParams.get("q") ?? "";
 
@@ -23,7 +25,11 @@ export const Search = () => {
                     {data.total === 0 && <p>No results found</p>}
                     <div className="flex flex-wrap justify-center gap-8">
                         {data.data.map((card: CardType) => (
-                            <CardComponent key={card.id} card={card} />
+                            <CardComponent
+                                key={card.id}
+                                card={card}
+                                liked={favouriteIds.includes(card.id)}
+                            />
                         ))}
                     </div>
                 </>

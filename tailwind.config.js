@@ -10,12 +10,14 @@ export default {
     theme: {
         extend: {
             screens: {
-                'default': "1440px",
+                default: "1440px",
             },
             colors: {
                 "light-green": "#c1dcdc",
                 "button-green": "#85b791b3",
                 "light-black": "#1a1a1a",
+                "icon-light": "#000",
+                "icon-dark": "#fff",
             },
         },
     },

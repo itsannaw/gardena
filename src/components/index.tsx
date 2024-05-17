@@ -1,7 +1,19 @@
-import { AuthForm } from "./auth-form/AuthForm";
-import { CardComponent } from "./card/Card";
-import { Footer } from "./footer/Footer";
-import { NavbarComponent } from "./navbar/NavbarComponent";
-import { SearchInput } from "./search/SearchInput";
+import { AuthForm } from "./auth/AuthForm";
+import { Footer } from "./layout/footer/Footer";
+import { NavbarComponent } from "./layout/navbar/NavbarComponent";
+import { CardComponent } from "./ui/card/Card";
+import { CardDetail } from "./ui/card/CardDetail";
+import { SearchInput } from "./ui/inputs/search/SearchInput";
+import { LinearLoading } from "./ui/loading/LinearLoading";
+import { Search } from "./ui/search/Search";
 
-export { NavbarComponent, SearchInput, Footer, AuthForm, CardComponent };
+export {
+    Search,
+    NavbarComponent,
+    SearchInput,
+    Footer,
+    AuthForm,
+    CardComponent,
+    CardDetail,
+    LinearLoading,
+};

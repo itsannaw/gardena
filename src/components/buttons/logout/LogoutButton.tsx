@@ -1,5 +1,6 @@
 import { Button, Tooltip } from "@nextui-org/react";
 
+import { LogoutIcon } from "@/components/icons/LogoutIcon";
 import { useAppDispatch } from "@/hooks/reduxHooks";
 import { logoutUser } from "@/store/user/userThunk";
 
@@ -9,7 +10,7 @@ export const LogoutButton = () => {
     return (
         <Tooltip showArrow={true} content="Logout">
             <Button variant="light" isIconOnly onClick={() => dispatch(logoutUser())}>
-                <img className="h-6 w-6" src="/icons/logout.svg" alt="Logout" />
+                <LogoutIcon className="stroke-black dark:stroke-white" />
             </Button>
         </Tooltip>
     );

@@ -9,7 +9,7 @@ export const HomePage = () => {
         <section id="home" className="flex flex-col gap-10">
             <div className="relative flex justify-center rounded-3xl bg-light-green px-10 lg:justify-between  xl:px-14">
                 <div className="flex flex-col justify-center gap-10 py-14 lg:py-28">
-                    <h1 className="text-center text-5xl font-extrabold sm:text-start sm:text-6xl">
+                    <h1 className="text-black text-center text-5xl font-extrabold sm:text-start sm:text-6xl">
                         Find out <br /> more plants
                     </h1>
                     <div className="flex max-w-[320px] items-center justify-center gap-5 text-center md:justify-between md:gap-0 md:text-start">

@@ -9,7 +9,7 @@ export const SearchResults = ({ data, isLoading, error }: SearchResultsProps) =>
     const { navigateWithParams } = useNavigateWithParams();
 
     return (
-        <div className="absolute top-[40px] z-20 flex max-h-[125px] w-full max-w-[370px] flex-col overflow-auto rounded-md border-2">
+        <div className="absolute top-[40px] z-20 flex max-h-[125px] w-full max-w-[370px] flex-col overflow-auto rounded-md border-2 dark:border-slate-800">
             {error ? (
                 <span className="bg-white p-4 text-sm">{NOTIFICATIONS.ERROR}</span>
             ) : isLoading ? (
@@ -27,7 +27,7 @@ export const SearchResults = ({ data, isLoading, error }: SearchResultsProps) =>
                         }}
                         to={""}
                     >
-                        <div className="flex items-center gap-3 border-b-2 bg-white px-3 py-2">
+                        <div className="flex items-center gap-3 border-b-2 bg-white px-3 py-2 dark:border-slate-800 dark:bg-black">
                             <img
                                 className="h-5 w-5"
                                 src={

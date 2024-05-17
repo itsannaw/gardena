@@ -6,19 +6,23 @@ import useFetchUserFavourites from "@/hooks/useFetchUserFavourites";
 import { CardType } from "@/types/ui";
 
 export const FavouritePage = () => {
-    const { favouriteIds } = useFetchUserFavourites();
-    const { speciesData, loading, error } = useFetchFavouritePlantsData(favouriteIds);
+    const { favouriteIds, loading: favouriteLoading } = useFetchUserFavourites();
+    const {
+        speciesData,
+        loading: speciesLoading,
+        error,
+    } = useFetchFavouritePlantsData(favouriteIds);
 
     return (
         <div className="flex flex-col items-center justify-center gap-8">
             <h2 className="text-center text-2xl font-bold">Favourite Plants</h2>
-            {loading ? (
+            {favouriteLoading || speciesLoading ? (
                 <div>
                     <SpinnerLoading />
                 </div>
             ) : error ? (
                 <div>Error: {error}</div>
-            ) : speciesData.length === 0 ? (
+            ) : speciesData.length === 0 && favouriteIds.length ? (
                 <div>You have no favourites.</div>
             ) : (
                 <>

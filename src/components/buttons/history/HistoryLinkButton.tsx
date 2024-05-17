@@ -1,6 +1,7 @@
 import { Button, Tooltip } from "@nextui-org/react";
 import { useNavigate } from "react-router-dom";
 
+import { BookIcon } from "@/components/icons/BookIcon";
 import { ROUTES } from "@/utils/constants/routes";
 
 export const HistoryLinkButton = () => {
@@ -13,7 +14,7 @@ export const HistoryLinkButton = () => {
     return (
         <Tooltip showArrow={true} content="Your search history">
             <Button variant="light" isIconOnly onClick={handleClick}>
-                <img className="h-6 w-6" src="/icons/book.svg" alt="History" />
+                <BookIcon className="stroke-black dark:stroke-white" />
             </Button>
         </Tooltip>
     );

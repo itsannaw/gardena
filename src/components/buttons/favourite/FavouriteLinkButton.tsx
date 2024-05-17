@@ -1,6 +1,7 @@
 import { Button, Tooltip } from "@nextui-org/react";
 import { useNavigate } from "react-router-dom";
 
+import { FavouriteIcon } from "@/components/icons/FavouriteIcon";
 import { ROUTES } from "@/utils/constants/routes";
 
 export const FavouriteLinkButton = () => {
@@ -12,7 +13,7 @@ export const FavouriteLinkButton = () => {
     return (
         <Tooltip showArrow={true} content="Your favourite plants">
             <Button variant="light" isIconOnly onClick={handleClick}>
-                <img className="h-6 w-6" src="/icons/heart.svg" alt="Favourite" />
+                <FavouriteIcon className="stroke-black dark:stroke-white" />
             </Button>
         </Tooltip>
     );

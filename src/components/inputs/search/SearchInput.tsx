@@ -2,6 +2,7 @@ import { Input } from "@nextui-org/react";
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
+import { SearchIcon } from "@/components/icons/SearchIcon";
 import { useAppDispatch, useAppSelector } from "@/hooks/reduxHooks";
 import useClickOutside from "@/hooks/useClickOutside";
 import { useDebounce } from "@/hooks/useDebounce";
@@ -69,7 +70,7 @@ export const SearchInput = () => {
                 placeholder="Search plants"
                 endContent={
                     <button onClick={handleSearch}>
-                        <img className="h-4 w-4" src="/icons/search.svg" alt="Search" />
+                        <SearchIcon className="stroke-black dark:stroke-white" />
                     </button>
                 }
                 radius="full"

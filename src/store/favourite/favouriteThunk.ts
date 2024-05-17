@@ -1,4 +1,3 @@
-// src/store/thunks.ts
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { addDoc, collection, doc, getDocs, query, where, writeBatch } from "firebase/firestore";
 

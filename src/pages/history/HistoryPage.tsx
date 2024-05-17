@@ -1,18 +1,19 @@
 import { useEffect, useMemo } from "react";
 
-import { DeleteAllHistoryButton } from "@/components/buttons/history/DeleteAllHistoryButton";
-import { DeleteHistoryButton } from "@/components/buttons/history/DeleteHistoryButton";
-import { SpinnerLoading } from "@/components/loading/SpinnerLoading";
+import { DeleteAllHistoryButton } from "@/components/ui/buttons/history/DeleteAllHistoryButton";
+import { DeleteHistoryButton } from "@/components/ui/buttons/history/DeleteHistoryButton";
+import { SpinnerLoading } from "@/components/ui/loading/SpinnerLoading";
 import { useAppDispatch, useAppSelector } from "@/hooks/reduxHooks";
 import { useNavigateSearch } from "@/hooks/useNavigateSearch";
 import { deleteSearchQuery, fetchUserSearchQueries } from "@/store/search/searchQueriesThunk";
+import { getUserId } from "@/store/selectors";
 import { ROUTES, ROUTE_PARAMS } from "@/utils/constants/routes";
 import { formatTimestamp } from "@/utils/helpers/converts";
 
 const HistoryPage = () => {
     const dispatch = useAppDispatch();
     const { queries, status, error } = useAppSelector((state) => state.searchQueriesSlice);
-    const userId = useAppSelector((state) => state.userSlice.id);
+    const userId = useAppSelector(getUserId);
     const navigateSearch = useNavigateSearch();
 
     useEffect(() => {

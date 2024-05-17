@@ -1,6 +1,6 @@
 import { CardComponent } from "@/components";
-import { DeleteAllFavouriteButton } from "@/components/buttons";
-import { SpinnerLoading } from "@/components/loading/SpinnerLoading";
+import { DeleteAllFavouriteButton } from "@/components/ui/buttons";
+import { SpinnerLoading } from "@/components/ui/loading/SpinnerLoading";
 import useFetchFavouritePlantsData from "@/hooks/useFetchFavouritePlantsData";
 import useFetchUserFavourites from "@/hooks/useFetchUserFavourites";
 import { CardType } from "@/types/ui";

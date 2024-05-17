@@ -1,13 +1,14 @@
 import { useAppDispatch, useAppSelector } from "@/hooks/reduxHooks";
-import { deleteAllFavourite } from "@/store/favourite/favouriteThunk";
+import { deleteAllSearchQueries } from "@/store/search/searchQueriesThunk";
+import { getUserId } from "@/store/selectors";
 
-export const DeleteAllFavouriteButton = () => {
+export const DeleteAllHistoryButton = () => {
     const dispatch = useAppDispatch();
-    const userId = useAppSelector((state) => state.userSlice.id);
+    const userId = useAppSelector(getUserId)
 
     const handleDelete = (userId: string) => {
         if (userId) {
-            dispatch(deleteAllFavourite(userId));
+            dispatch(deleteAllSearchQueries(userId));
         }
     };
 

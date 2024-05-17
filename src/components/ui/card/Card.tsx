@@ -2,13 +2,14 @@ import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
 
 import { useAppSelector } from "@/hooks/reduxHooks";
 import { useNavigateWithParams } from "@/hooks/useNavigateWithParams";
+import { getUserId } from "@/store/selectors";
 import { CardComponentProps } from "@/types/ui";
 import { ROUTES } from "@/utils/constants/routes";
 
 import { FavouriteButton } from "../buttons";
 
 export const CardComponent = ({ card, liked }: CardComponentProps) => {
-    const userId = useAppSelector((state) => state.userSlice.id);
+    const userId = useAppSelector(getUserId);
     const { navigateWithParams } = useNavigateWithParams();
 
     const handleClick = () => {

@@ -1,9 +1,9 @@
 import { Button } from "@nextui-org/react";
 
-import { SpinnerLoading } from "@/components/loading/SpinnerLoading";
+import { HeartIcon } from "@/components/icons/HeartIcon";
 import { useToggleLike } from "@/hooks/useToggleLike";
 
-import { HeartIcon } from "../../icons/HeartIcon";
+import { SpinnerLoading } from "../../loading/SpinnerLoading";
 
 export const FavouriteButton = ({
     className,

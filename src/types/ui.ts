@@ -28,6 +28,7 @@ export interface SearchResultsProps {
     data: { total: number; data: SearchInputType[] } | null;
     isLoading: boolean;
     error: FetchBaseQueryError | SerializedError | undefined;
+    handleSearch?: () => void;
 }
 
 export interface DeleteHistoryButtonProps {

@@ -9,6 +9,7 @@ import { useDebounce } from "@/hooks/useDebounce";
 import { useNavigateSearch } from "@/hooks/useNavigateSearch";
 import { useGetPlantBySearchQuery } from "@/store/api/plantsApi";
 import { addSearchQuery } from "@/store/search/searchQueriesThunk";
+import { getUserId } from "@/store/selectors";
 import { USED_KEYS } from "@/utils/constants/events";
 import { DEBOUNCE_TIMINGS } from "@/utils/constants/general";
 import { ROUTES, ROUTE_PARAMS } from "@/utils/constants/routes";
@@ -17,7 +18,7 @@ import { SearchResults } from "./SearchResults";
 
 export const SearchInput = () => {
     const dispatch = useAppDispatch();
-    const userId = useAppSelector((state) => state.userSlice.id);
+    const userId = useAppSelector(getUserId);
     const navigateSearch = useNavigateSearch();
     const [searchParams] = useSearchParams();
     const queryFromUrl = searchParams.get(ROUTE_PARAMS.QUERY) ?? "";

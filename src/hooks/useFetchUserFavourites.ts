@@ -1,13 +1,15 @@
 import { useEffect, useMemo, useState } from "react";
 
 import { fetchUserFavourite } from "@/store/favourite/favouriteThunk";
+import { getUserFavourites } from "@/store/selectors";
+import { getUserId } from "@/store/selectors";
 
 import { useAppDispatch, useAppSelector } from "./reduxHooks";
 
 const useFetchUserFavourites = () => {
     const dispatch = useAppDispatch();
-    const userId = useAppSelector((state) => state.userSlice.id);
-    const userFavourites = useAppSelector((state) => state.favouriteSlice.cardsId);
+    const userId = useAppSelector(getUserId);
+    const userFavourites = useAppSelector(getUserFavourites);
     const [loading, setLoading] = useState<boolean>(false);
 
     const favouriteIds = useMemo(
@@ -17,6 +19,7 @@ const useFetchUserFavourites = () => {
 
     useEffect(() => {
         const fetchFavourites = async () => {
+            if (!userId) return;
             setLoading(true);
             try {
                 if (userId) {

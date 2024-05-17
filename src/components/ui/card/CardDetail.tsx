@@ -4,13 +4,14 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useAppSelector } from "@/hooks/reduxHooks";
 import useFetchUserFavourites from "@/hooks/useFetchUserFavourites";
 import { useGetPlantByIdQuery } from "@/store/api/plantsApi";
+import { getUserId } from "@/store/selectors";
 import { NOTIFICATIONS } from "@/utils/constants/general";
 
 import { FavouriteButton } from "../buttons";
 import { LinearLoading } from "../loading/LinearLoading";
 
 export const CardDetail = () => {
-    const userId = useAppSelector((state) => state.userSlice.id);
+    const userId = useAppSelector(getUserId);
     const { favouriteIds } = useFetchUserFavourites();
     const { id } = useParams();
     const navigate = useNavigate();

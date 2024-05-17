@@ -1,8 +1,8 @@
 import { Link, Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/react";
 import { Link as LinkRouter, useLocation } from "react-router-dom";
 
-import { FavouriteLinkButton, HistoryLinkButton, LogoutButton } from "@/components/buttons";
-import { ThemeButton } from "@/components/buttons/theme/ThemeButton";
+import { FavouriteLinkButton, HistoryLinkButton, LogoutButton } from "@/components/ui/buttons";
+import { ThemeButton } from "@/components/ui/buttons/theme/ThemeButton";
 import { useIsLoggedIn } from "@/hooks/useIsLoggedIn";
 import { ROUTES } from "@/utils/constants/routes";
 

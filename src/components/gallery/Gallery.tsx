@@ -6,9 +6,9 @@ import { useGetPlantsQuery } from "@/store/api/plantsApi";
 import { CardType } from "@/types/ui";
 import { NOTIFICATIONS } from "@/utils/constants/general";
 
-import { CardComponent } from "../card/Card";
-import { SearchInput } from "../inputs/search/SearchInput";
-import { LinearLoading } from "../loading/LinearLoading";
+import { CardComponent } from "../ui/card/Card";
+import { SearchInput } from "../ui/inputs/search/SearchInput";
+import { LinearLoading } from "../ui/loading/LinearLoading";
 
 const Gallery = () => {
     const [currentPage, setCurrentPage] = useState<number>(1);

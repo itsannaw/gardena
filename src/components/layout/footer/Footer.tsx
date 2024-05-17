@@ -10,7 +10,7 @@ export const Footer = () => {
             className="mb-3 mt-12 flex flex-col items-center justify-center gap-2 border-t-1 pt-2"
         >
             <Link
-                className="dark:text-white font-medium text-black hover:text-default-700 dark:hover:text-default-300"
+                className="font-medium text-black hover:text-default-700 dark:text-white dark:hover:text-default-300"
                 href={URL.GITHUB}
             >
                 <GithubIcon className={"h-6 w-6 fill-black dark:fill-white"} /> &nbsp; Github

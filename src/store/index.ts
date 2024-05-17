@@ -5,6 +5,7 @@ import searchQueriesSlice from "@/store/search/searchQueriesSlice";
 import userSlice from "@/store/user/userSlice";
 
 import { plantsApi } from "./api/plantsApi";
+import { listenerMiddleware } from "./middlewares/authMiddleware";
 
 export const store = configureStore({
     reducer: {
@@ -16,7 +17,7 @@ export const store = configureStore({
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: false,
-        }).concat(plantsApi.middleware),
+        }).concat(plantsApi.middleware, listenerMiddleware.middleware),
 });
 
 export type AppDispatch = typeof store.dispatch;

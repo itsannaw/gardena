@@ -27,12 +27,12 @@ export const FavouriteButton = ({
             onPress={() => toggleLike({ userId, cardId, liked })}
         >
             {likeLoading ? (
-            <SpinnerLoading />
+                <SpinnerLoading />
             ) : (
-            <HeartIcon
-                className={liked ? "[&>path]:stroke-transparent" : ""}
-                fill={liked ? "black" : "none"}
-            />
+                <HeartIcon
+                    className={liked ? "[&>path]:stroke-transparent" : ""}
+                    fill={liked ? "black" : "none"}
+                />
             )}
         </Button>
     );

@@ -6,7 +6,7 @@ import { addFavourite, deleteFavourite } from "@/store/favourite/favouriteThunk"
 interface UseToggleLike {
     userId: string;
     cardId: string;
-    liked: boolean; 
+    liked: boolean;
 }
 
 export const useToggleLike = () => {

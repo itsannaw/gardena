@@ -1,11 +1,11 @@
 import { AuthForm } from "./auth/AuthForm";
-import { CardComponent } from "./card/Card";
-import { CardDetail } from "./card/CardDetail";
-import { SearchInput } from "./inputs/search/SearchInput";
 import { Footer } from "./layout/footer/Footer";
 import { NavbarComponent } from "./layout/navbar/NavbarComponent";
-import { LinearLoading } from "./loading/LinearLoading";
-import { Search } from "./search/Search";
+import { CardComponent } from "./ui/card/Card";
+import { CardDetail } from "./ui/card/CardDetail";
+import { SearchInput } from "./ui/inputs/search/SearchInput";
+import { LinearLoading } from "./ui/loading/LinearLoading";
+import { Search } from "./ui/search/Search";
 
 export {
     Search,

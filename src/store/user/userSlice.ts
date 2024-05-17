@@ -10,12 +10,14 @@ interface UserData {
     email: string | null;
 }
 
+const initialState: UserState = {
+    id: null,
+    email: null,
+};
+
 const userSlice = createSlice({
     name: "user",
-    initialState: {
-        id: null,
-        email: null,
-    } as UserState,
+    initialState,
     reducers: {
         setUser(state, action: PayloadAction<UserData>) {
             state.id = action.payload.id;

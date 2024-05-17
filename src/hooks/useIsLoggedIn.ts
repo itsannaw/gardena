@@ -3,11 +3,12 @@ import { useState, useEffect } from "react";
 
 import { useAppDispatch, useAppSelector } from "@/hooks/reduxHooks";
 import { auth } from "@/services/firebase";
+import { getUserEmail } from "@/store/selectors";
 import { removeUser, setUser } from "@/store/user/userSlice";
 
 export const useIsLoggedIn = () => {
     const dispatch = useAppDispatch();
-    const email = useAppSelector((state) => state.userSlice.email);
+    const email = useAppSelector(getUserEmail);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {

@@ -11,3 +11,14 @@ export interface SearchQueriesState {
     status: "idle" | "loading" | "succeeded" | "failed";
     error: string | null;
 }
+
+export interface Favourite {
+    id: string;
+    cardId: string;
+}
+
+export interface FavouriteState {
+    cardsId: Favourite[];
+    status: "idle" | "loading" | "succeeded" | "failed";
+    error: string | null;
+}

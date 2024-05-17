@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 import { AuthFormProps, FormUserData } from "@/types/auth";
 import { authSchema } from "@/utils/zod/authSchema";
 
-import { EmailInput } from "../inputs/email/EmailInput";
-import { PasswordInput } from "../inputs/password/PasswordInput";
+import { EmailInput } from "../ui/inputs/email/EmailInput";
+import { PasswordInput } from "../ui/inputs/password/PasswordInput";
 
 export const AuthForm = ({
     handleForm,

@@ -8,6 +8,15 @@ const useFetchFavouritePlantsData = (favouriteIds: number[]) => {
     const [speciesData, setSpeciesData] = useState<CardType[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string>("");
+    const [favCopy, setFavCopy] = useState<number[]>([]);
+    const [isFetched, setIsFetched] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (favouriteIds.length && !isFetched) {
+            setFavCopy(favouriteIds);
+            setIsFetched(true);
+        }
+    }, [favouriteIds, isFetched]);
 
     useEffect(() => {
         const fetchSpecies = async () => {
@@ -15,7 +24,8 @@ const useFetchFavouritePlantsData = (favouriteIds: number[]) => {
             setError("");
 
             try {
-                const promises = favouriteIds.map(async (id) => {
+                // 🤪
+                const promises = favCopy.map(async (id) => {
                     const response = await fetch(
                         API_PERENUAL.BASE_URL + API_PERENUAL.PLANT_DETAILS(id.toString()),
                     );
@@ -32,9 +42,9 @@ const useFetchFavouritePlantsData = (favouriteIds: number[]) => {
         };
 
         fetchSpecies();
-    }, [favouriteIds]);
+    }, [favCopy]);
 
-    return { speciesData, loading, error };
+    return { speciesData, loading, error, setSpeciesData };
 };
 
 export default useFetchFavouritePlantsData;

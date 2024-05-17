@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { fetchUserFavourite } from "@/store/favourite/favouriteThunk";
 import { getUserFavourites } from "@/store/selectors";
@@ -17,22 +17,23 @@ const useFetchUserFavourites = () => {
         [userFavourites],
     );
 
-    useEffect(() => {
-        const fetchFavourites = async () => {
-            if (!userId) return;
-            setLoading(true);
-            try {
-                if (userId) {
-                    await dispatch(fetchUserFavourite(userId)).unwrap();
-                }
-            } catch (error) {
-                alert("Failed to fetch user favourites...");
-            } finally {
-                setLoading(false);
+    const fetchFavourites = useCallback(async () => {
+        if (!userId) return;
+        setLoading(true);
+        try {
+            if (userId) {
+                await dispatch(fetchUserFavourite(userId)).unwrap();
             }
-        };
-        fetchFavourites();
+        } catch (error) {
+            alert("Failed to fetch user favourites...");
+        } finally {
+            setLoading(false);
+        }
     }, [dispatch, userId]);
+
+    useEffect(() => {
+        fetchFavourites();
+    }, [fetchFavourites]);
 
     return { favouriteIds, loading };
 };

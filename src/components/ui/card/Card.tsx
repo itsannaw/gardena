@@ -8,7 +8,7 @@ import { ROUTES } from "@/utils/constants/routes";
 
 import { FavouriteButton } from "../buttons";
 
-export const CardComponent = ({ card, liked }: CardComponentProps) => {
+export const CardComponent = ({ card, liked, onLike }: CardComponentProps) => {
     const userId = useAppSelector(getUserId);
     const { navigateWithParams } = useNavigateWithParams();
 
@@ -29,6 +29,7 @@ export const CardComponent = ({ card, liked }: CardComponentProps) => {
                     liked={liked}
                     cardId={card?.id.toString()}
                     userId={userId?.toString() || ""}
+                    onLike={onLike}
                 />
             )}
             <CardHeader

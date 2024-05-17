@@ -1,5 +1,8 @@
+import { PressEvent } from "@react-types/shared";
 import { SerializedError } from "@reduxjs/toolkit";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+
+import { propsUseToggleLike } from "./hooks";
 
 export type CardType = {
     id: number;
@@ -14,6 +17,7 @@ export type CardType = {
 export type CardComponentProps = {
     card: CardType;
     liked: boolean;
+    onLike?: (event: PressEvent, payload: propsUseToggleLike) => void | Promise<void>;
 };
 
 export type SearchInputType = {
@@ -33,4 +37,12 @@ export interface SearchResultsProps {
 
 export interface DeleteHistoryButtonProps {
     onDelete: () => void;
+}
+
+export interface propsFavouriteButton {
+    className?: string;
+    liked: boolean;
+    cardId: string;
+    userId: string;
+    onLike?: (event: PressEvent, payload: propsUseToggleLike) => void | Promise<void>;
 }

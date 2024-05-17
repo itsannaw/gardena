@@ -4,7 +4,7 @@ import { getUserId } from "@/store/selectors";
 
 export const DeleteAllFavouriteButton = () => {
     const dispatch = useAppDispatch();
-    const userId = useAppSelector(getUserId)
+    const userId = useAppSelector(getUserId);
 
     const handleDelete = (userId: string) => {
         if (userId) {

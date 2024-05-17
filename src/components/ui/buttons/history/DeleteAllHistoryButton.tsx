@@ -4,7 +4,7 @@ import { getUserId } from "@/store/selectors";
 
 export const DeleteAllHistoryButton = () => {
     const dispatch = useAppDispatch();
-    const userId = useAppSelector(getUserId)
+    const userId = useAppSelector(getUserId);
 
     const handleDelete = (userId: string) => {
         if (userId) {

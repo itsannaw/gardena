@@ -2,18 +2,13 @@ import { useState } from "react";
 
 import { useAppDispatch } from "@/hooks/reduxHooks";
 import { addFavourite, deleteFavourite } from "@/store/favourite/favouriteThunk";
-
-interface UseToggleLike {
-    userId: string;
-    cardId: string;
-    liked: boolean;
-}
+import { propsUseToggleLike } from "@/types/hooks";
 
 export const useToggleLike = () => {
     const dispatch = useAppDispatch();
     const [likeLoading, setLikeLoading] = useState(false);
 
-    const toggleLike = async ({ userId, cardId, liked }: UseToggleLike) => {
+    const toggleLike = async ({ userId, cardId, liked }: propsUseToggleLike) => {
         if (likeLoading) return;
         setLikeLoading(true);
         try {

@@ -20,7 +20,7 @@
 -   [x] Есть применение [Контекст API](https://github.com/itsannaw/gardena/blob/main/src/context/ThemeContext.tsx)
 -   [x] Есть применение [предохранителя](https://github.com/itsannaw/gardena/blob/main/src/App.tsx)
 -   [x] Есть хотя бы один [кастомный хук](https://github.com/itsannaw/gardena/blob/main/src/hooks/useIsLoggedIn.ts)
--   [x] Хотя бы несколько компонентов используют PropTypes:[PasswordInput](https://github.com/itsannaw/gardena/blob/main/src/components/ui/inputs/password/PasswordInput.tsx),[EmailInput](https://github.com/itsannaw/gardena/blob/main/src/components/ui/inputs/email/EmailInput.tsx)
+-   [x] Хотя бы несколько компонентов используют PropTypes: [PasswordInput](https://github.com/itsannaw/gardena/blob/main/src/components/ui/inputs/password/PasswordInput.tsx), [EmailInput](https://github.com/itsannaw/gardena/blob/main/src/components/ui/inputs/email/EmailInput.tsx)
 -   [x] Поиск не должен триггерить много запросов к серверу: [useDebounce](https://github.com/itsannaw/gardena/blob/main/src/hooks/useDebounce.ts)
 -   [x] Есть применение lazy + Suspense: [HomePage](https://github.com/itsannaw/gardena/blob/main/src/pages/home/HomePage.tsx)
 

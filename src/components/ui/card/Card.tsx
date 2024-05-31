@@ -19,7 +19,7 @@ export const CardComponent = ({ card, liked, onLike }: CardComponentProps) => {
     };
     return (
         <Card
-            className="sm:w-[400px]  border-none bg-background/60 py-4 dark:bg-default-100/50"
+            className="border-none  bg-background/60 py-4 dark:bg-default-100/50 sm:w-[400px]"
             shadow="sm"
             isBlurred
         >
@@ -43,7 +43,7 @@ export const CardComponent = ({ card, liked, onLike }: CardComponentProps) => {
             <CardBody className="items-center overflow-visible py-5">
                 <Image
                     alt="Plant"
-                    className="rounded-xl object-cover w-[300px]"
+                    className="w-[300px] rounded-xl object-cover"
                     src={
                         card.defaultImage?.mediumUrl
                             ? card.defaultImage.mediumUrl

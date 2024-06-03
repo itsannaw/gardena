@@ -11,11 +11,11 @@ export const SearchResults = ({ data, isLoading, error }: SearchResultsProps) =>
     return (
         <div className="absolute top-[40px] z-20 flex max-h-[125px] w-full max-w-[370px] flex-col overflow-auto rounded-md border-2 dark:border-slate-800">
             {error ? (
-                <span className="bg-white p-4 text-sm">{NOTIFICATIONS.ERROR}</span>
+                <span className="bg-white p-4 text-sm dark:bg-black">{NOTIFICATIONS.ERROR}</span>
             ) : isLoading ? (
-                <span className="bg-white p-4 text-sm">We're looking...</span>
+                <span className="bg-white p-4 text-sm dark:bg-black">We're looking...</span>
             ) : !data?.total ? (
-                <span className="bg-white p-4 text-sm">No results found</span>
+                <span className="bg-white p-4 text-sm dark:bg-black">No results found</span>
             ) : (
                 data?.data.map((plant: SearchInputType) => (
                     <Link

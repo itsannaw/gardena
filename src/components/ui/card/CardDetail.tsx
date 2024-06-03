@@ -29,10 +29,10 @@ export const CardDetail = () => {
                         ← Go back
                     </button>
                     {data && (
-                        <Card className="flex max-w-[1200px] flex-wrap justify-between p-5">
-                            <div className="flex justify-start gap-20">
+                        <Card className="flex max-w-[1200px] justify-between p-5">
+                            <div className="flex gap-5 max-xl:flex-col max-xl:items-center xl:justify-start xl:gap-20">
                                 <img
-                                    className="w-[400px]"
+                                    className="max-xl:w-[400px]"
                                     src={
                                         data.defaultImage?.mediumUrl
                                             ? data.defaultImage.mediumUrl
